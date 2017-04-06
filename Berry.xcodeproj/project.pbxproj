@@ -7,10 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		892377FB1E964DE00081A65B /* BerryConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892377FA1E964DE00081A65B /* BerryConfig.swift */; };
+		892377FE1E9656470081A65B /* BerryMenuProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892377FD1E9656470081A65B /* BerryMenuProperty.swift */; };
+		892378081E9659370081A65B /* BerryCellProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892378071E9659370081A65B /* BerryCellProperty.swift */; };
+		8923780A1E9659660081A65B /* BerryArrowProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892378091E9659660081A65B /* BerryArrowProperty.swift */; };
+		8923780C1E9659870081A65B /* BerryMaskProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8923780B1E9659870081A65B /* BerryMaskProperty.swift */; };
+		8923780E1E9659A80081A65B /* BerryOtherProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8923780D1E9659A80081A65B /* BerryOtherProperty.swift */; };
 		898935BD1E96440000CC623C /* Berry.h in Headers */ = {isa = PBXBuildFile; fileRef = 898935BB1E96440000CC623C /* Berry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		892377FA1E964DE00081A65B /* BerryConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BerryConfig.swift; path = Source/BerryConfig.swift; sourceTree = SOURCE_ROOT; };
+		892377FD1E9656470081A65B /* BerryMenuProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BerryMenuProperty.swift; path = Source/BerryMenuProperty.swift; sourceTree = SOURCE_ROOT; };
+		892378071E9659370081A65B /* BerryCellProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryCellProperty.swift; sourceTree = "<group>"; };
+		892378091E9659660081A65B /* BerryArrowProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryArrowProperty.swift; sourceTree = "<group>"; };
+		8923780B1E9659870081A65B /* BerryMaskProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryMaskProperty.swift; sourceTree = "<group>"; };
+		8923780D1E9659A80081A65B /* BerryOtherProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryOtherProperty.swift; sourceTree = "<group>"; };
 		898935B81E96440000CC623C /* Berry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Berry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898935BB1E96440000CC623C /* Berry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Berry.h; sourceTree = "<group>"; };
 		898935BC1E96440000CC623C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +39,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		892377F91E964DD20081A65B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				892377FA1E964DE00081A65B /* BerryConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		892377FC1E9656240081A65B /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				892377FD1E9656470081A65B /* BerryMenuProperty.swift */,
+				892378071E9659370081A65B /* BerryCellProperty.swift */,
+				892378091E9659660081A65B /* BerryArrowProperty.swift */,
+				8923780B1E9659870081A65B /* BerryMaskProperty.swift */,
+				8923780D1E9659A80081A65B /* BerryOtherProperty.swift */,
+			);
+			path = Property;
+			sourceTree = "<group>";
+		};
 		898935AE1E96440000CC623C = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +78,8 @@
 		898935BA1E96440000CC623C /* Berry */ = {
 			isa = PBXGroup;
 			children = (
+				892377FC1E9656240081A65B /* Property */,
+				892377F91E964DD20081A65B /* Config */,
 				898935BB1E96440000CC623C /* Berry.h */,
 				898935BC1E96440000CC623C /* Info.plist */,
 			);
@@ -132,6 +166,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892378081E9659370081A65B /* BerryCellProperty.swift in Sources */,
+				8923780C1E9659870081A65B /* BerryMaskProperty.swift in Sources */,
+				892377FE1E9656470081A65B /* BerryMenuProperty.swift in Sources */,
+				892377FB1E964DE00081A65B /* BerryConfig.swift in Sources */,
+				8923780E1E9659A80081A65B /* BerryOtherProperty.swift in Sources */,
+				8923780A1E9659660081A65B /* BerryArrowProperty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -228,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

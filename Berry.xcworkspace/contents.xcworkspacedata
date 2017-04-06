@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Berry.xcodeproj">
+      location = "group:Examples.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Examples.xcodeproj">
+      location = "group:Berry.xcodeproj">
    </FileRef>
 </Workspace>
