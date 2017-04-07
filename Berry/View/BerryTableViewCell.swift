@@ -86,9 +86,9 @@ public class BerryTableViewCell: UITableViewCell {
         
         if cellSepartorVertical == nil && BerryConstant.defaultMaxColoums != coloums {
             cellSepartorVertical = BerrySeparator(frame: CGRect(x: cellContentFrame.width - CGFloat.half,
-                                                                  y: 0,
-                                                                  width: CGFloat.half,
-                                                                  height: cellHeight))
+                                                                    y: 0,
+                                                                    width: CGFloat.half,
+                                                                    height: cellHeight))
             cellSepartorVertical?.separatorColor = menuConfig.cellProperty.cellSeparatorColor
             contentView.addSubview(cellSepartorVertical!)
         }

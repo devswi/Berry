@@ -8,9 +8,13 @@
 
 import UIKit
 
+public typealias SelectRowsAtIndexPathClosure = ((_ index: (fromTable: Int, at: Int)) -> ())
+
 public class BerryView: UIView {
 
     public var didSelectedItemAtIndex: SelectRowAtIndexPathClosure?
+    public var didSelectedRowsAtIndexPath: SelectRowsAtIndexPathClosure?
+    
     public var isShown: Bool = false
     
     public var menuTitleColor: UIColor! {
@@ -93,7 +97,6 @@ public class BerryView: UIView {
     fileprivate var menuWrapper: UIView!
     fileprivate var backgroundView: UIView!
     fileprivate var tableViewContainerView: UIView!
-    fileprivate var tableView: BerryTableView!
     fileprivate var tableViews: [BerryTableView] = []
     
     fileprivate var items: [BerryMenuItem] = []
@@ -118,23 +121,6 @@ public class BerryView: UIView {
     }
     
     ///
-    /// This method can used to create Berry menu, the coloums of this menu without any restriction
-    ///
-    /// - parameter navigationController: UINavigationController will changed when menu was selected
-    /// - parameter containerView:
-    /// - parameter selectedIndexs: The index of the menu which is selected
-    /// - parameter items: Menu items
-    /// - parameter config: BerryConfig default is **BerryConfig.default()**
-    ///
-//    public init(navigationController: UINavigationController?,
-//                containerView: UIView,
-//                selectedIndexs: [Int],
-//                items: [BerryMenuItem],
-//                config: BerryConfig = BerryConfig.default()) {
-//        
-//    }
-    
-    ///
     /// This method can used to create Berry menu, but the coloums of this menu just can be only **1**
     ///
     /// - parameter navigationController: UINavigationController will changed when menu was selected
@@ -145,13 +131,17 @@ public class BerryView: UIView {
     ///
     public init(navigationController: UINavigationController?,
                 containerView: UIView,
-                selectedIndex: Int,
+                selectedIndex: [Int],
                 items: [BerryMenuItem],
                 config: BerryConfig = BerryConfig.default()) {
         
         guard let window = UIApplication.shared.keyWindow else {
             super.init(frame: .zero)
             return
+        }
+        
+        guard selectedIndex.count == config.menuProperty.menuColoums else {
+            fatalError("Menu coloums did not equal to data counts")
         }
         
         if let navigationController = navigationController {
@@ -162,7 +152,7 @@ public class BerryView: UIView {
         
         self.berryConfig = config
         
-        let title = items[selectedIndex].title
+        let title = items[selectedIndex.first ?? 0].title
         
         // Title size
         let titleSize = (title as NSString).size(attributes: [NSFontAttributeName: berryConfig.menuProperty.menuTitleFont])
@@ -190,7 +180,10 @@ public class BerryView: UIView {
         
         // Setup Navigation Menu
         menuButton = UIButton(frame: frame)
-        menuButton.addTarget(self, action: #selector(self.menuButtonTapped(_:)), for: .touchUpInside)
+        
+        if berryConfig.menuProperty.menuColoums == 1 { // More than one coloums, tap navigation bar title view will not show menu
+            menuButton.addTarget(self, action: #selector(self.menuButtonTapped(_:)), for: .touchUpInside)
+        }
         
         menuTitleLabel = UILabel(frame: frame)
         menuTitleLabel.text = title
@@ -252,7 +245,7 @@ public class BerryView: UIView {
         }
         
         menuWrapper.frame.origin.y = (navigationController?.navigationBar.frame.maxY)!
-        tableView.reloadData()
+        tableViews.forEach { $0.reloadData() }
     }
     
     // MARK: - Private Methods
@@ -324,31 +317,44 @@ public class BerryView: UIView {
         return CGFloat(berryConfig.menuProperty.menuMaxShowingRows) * berryConfig.cellProperty.cellHeight
     }
     
-    fileprivate func assembleBerryTableView(_ menuWrapperBounds: CGRect, selectedIndex: Int) {
-        tableView = BerryTableView(frame: CGRect(x: 0,
-                                                 y: 0,
-                                                 width: menuWrapperBounds.width / CGFloat(berryConfig.menuProperty.menuColoums),
-                                                 height: realityHeight()),
-                                   items: items,
-                                   selectedIndex: selectedIndex,
-                                   config: berryConfig)
+    fileprivate func assembleBerryTableView(_ menuWrapperBounds: CGRect, selectedIndex: [Int]) {
+        var items: [BerryMenuItem] = self.items
         
-        tableView.layer.cornerRadius = 5.0
-        tableView.layer.masksToBounds = true
-        tableView.selectRowAtIndexPathClosure = {
-            [weak self] selectedIndex in
-            guard let `self` = self else {
-                return
-            }
-            if let closure = self.didSelectedItemAtIndex {
-                closure(selectedIndex)
-            }
-            self.menuTitleLabel.text = self.items[selectedIndex].title
+        (0 ..< berryConfig.menuProperty.menuColoums).forEach { index in
+            let tableViewWidth: CGFloat = menuWrapperBounds.width / CGFloat(berryConfig.menuProperty.menuColoums)
             
-            self.hideMenu()
-            self.layoutSubviews()
+            if self.tableViews.count == berryConfig.menuProperty.menuColoums { return }
+            
+            let tableView = BerryTableView(frame: CGRect(x: tableViewWidth * CGFloat(index),
+                                                         y: 0,
+                                                         width: tableViewWidth,
+                                                         height: realityHeight()),
+                                           items: items,
+                                           selectedIndex: selectedIndex[index],
+                                           config: berryConfig)
+            
+            tableView.layer.masksToBounds = true
+            tableView.backgroundColor = UIColor(red: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1.0)
+            tableView.selectRowAtIndexPathClosure = {
+                [weak self] selectedIndex in
+                guard let `self` = self else {
+                    return
+                }
+                if let closure = self.didSelectedItemAtIndex {
+                    closure(selectedIndex)
+                }
+                self.menuTitleLabel.text = self.items[selectedIndex].title
+                
+                // if the count of menu's coloum is one, hide menu automatically
+                if self.berryConfig.menuProperty.menuColoums == 1 { self.hideMenu() }
+                
+                self.layoutSubviews()
+            }
+            self.tableViewContainerView.addSubview(tableView)
+            self.tableViews.append(tableView)
+            
+            items = self.items[selectedIndex[index]].menuSubItem
         }
-        tableViewContainerView.addSubview(tableView)
     }
 
 }

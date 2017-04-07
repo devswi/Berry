@@ -26,6 +26,8 @@ public class BerryTableView: UITableView {
         self.berry = items
         self.berryConfig = config
         
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
         delegate = self
         dataSource = self
         separatorStyle = .none
@@ -70,9 +72,7 @@ extension BerryTableView: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedIndex = indexPath.row
-        if let selected = selectRowAtIndexPathClosure {
-            selected(indexPath.row)
-        }
+        if let selected = selectRowAtIndexPathClosure { selected(indexPath.row) }
         reloadData()
     }
     
@@ -98,7 +98,7 @@ extension BerryTableView: UITableViewDelegate {
         
         let coloums = berryConfig.menuProperty.menuColoums
         
-        if indexPath.row == (berry.count - 1) {
+        if indexPath.row == (berry.count - 1) && coloums == BerryConstant.defaultMaxColoums {
             tableCell.cellSepartorHorizontal?.separatorColor = .clear
         } else {
             tableCell.cellSepartorHorizontal?.separatorColor = berryConfig.cellProperty.cellSeparatorColor

@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-284" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--Berry List View Controller-->
         <scene sceneID="TTI-eK-yFe">
             <objects>
-                <viewController id="0QP-wh-lis" customClass="ViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0QP-wh-lis" customClass="BerryListViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vyR-m2-cGm"/>
                         <viewControllerLayoutGuide type="bottom" id="G5I-tb-sNr"/>
@@ -36,13 +36,32 @@
                     <view key="view" contentMode="scaleToFill" id="5OU-CN-5nm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZ3-cx-sY7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0QP-wh-lis" id="ZrJ-wl-Ija"/>
+                                    <outlet property="delegate" destination="0QP-wh-lis" id="ddo-51-duJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kZ3-cx-sY7" firstAttribute="leading" secondItem="5OU-CN-5nm" secondAttribute="leading" id="CJO-gy-pwR"/>
+                            <constraint firstItem="kZ3-cx-sY7" firstAttribute="top" secondItem="5OU-CN-5nm" secondAttribute="top" id="GOl-CA-FPc"/>
+                            <constraint firstAttribute="trailing" secondItem="kZ3-cx-sY7" secondAttribute="trailing" id="apk-Ew-g9y"/>
+                            <constraint firstItem="G5I-tb-sNr" firstAttribute="top" secondItem="kZ3-cx-sY7" secondAttribute="bottom" id="dgd-zP-XBH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iy7-lR-zsH"/>
+                    <connections>
+                        <outlet property="tableView" destination="kZ3-cx-sY7" id="Y3e-2z-n9M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="669-07-cQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="478" y="125"/>
+            <point key="canvasLocation" x="477.60000000000002" y="124.58770614692655"/>
         </scene>
     </scenes>
 </document>

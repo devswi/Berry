@@ -14,7 +14,9 @@ public struct BerryMenuItem {
     public let iconImage: UIImage?
     public let iconHighlightImage: UIImage?
     
-    public init(_ title: String, icon: String, iconHighlight: String) {
+    public let menuSubItem: [BerryMenuItem]
+    
+    public init(_ title: String, icon: String, iconHighlight: String, menuSubItem: [BerryMenuItem] = []) {
         self.title = title
         
         if icon.isEmpty {
@@ -34,7 +36,7 @@ public struct BerryMenuItem {
             }
             self.iconHighlightImage = iconHighlightImage
         }
-        
+        self.menuSubItem = menuSubItem
     }
     
 }
