@@ -11,13 +11,13 @@ import UIKit
 public struct BerryOtherProperty {
     
     /// Animation duration **default 0.375**
-    var duration: TimeInterval
+    public var duration: TimeInterval
     
     /// Change title text when menu cell was selected
-    var shouldChangeTitleText: Bool
+    public var shouldChangeTitleText: Bool
     
     /// Change the color of menu's cell while cell was selected
-    var shouldKeepSelectedCellColor: Bool
+    public var shouldKeepSelectedCellColor: Bool
     
     static func `default`() -> BerryOtherProperty {
         

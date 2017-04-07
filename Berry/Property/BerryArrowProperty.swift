@@ -11,10 +11,10 @@ import UIKit
 public struct BerryArrowProperty {
     
     /// 
-    var arrowTintColor: UIColor
+    public var arrowTintColor: UIColor
     
     /// Arrow padding default is 10
-    var arrowPadding: CGFloat
+    public var arrowPadding: CGFloat
     
     /**
      * Arrow image which one will be showed on the navigation bar
@@ -23,11 +23,11 @@ public struct BerryArrowProperty {
      *
      * if nil will not set arrow image
      */
-    var arrowImage: String?
+    public var arrowImage: String?
     
     static func `default`() -> BerryArrowProperty {
         
-        return BerryArrowProperty(arrowTintColor: UIColor.white,
+        return BerryArrowProperty(arrowTintColor: UIColor.darkText,
                                   arrowPadding: 10.0,
                                   arrowImage: nil)
     }

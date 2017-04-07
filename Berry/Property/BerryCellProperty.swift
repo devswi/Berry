@@ -17,35 +17,35 @@ public enum BerryCellStyle {
 public struct BerryCellProperty {
     
     /// Menu cell style default style is none of image on cell
-    var cellStyle: BerryCellStyle
+    public var cellStyle: BerryCellStyle
     
     /// Menu cell height **default 44.0**
-    var cellHeight: CGFloat
+    public var cellHeight: CGFloat
     
     /// Menu cell backgroundColor
-    var cellBackgroundColor: UIColor
+    public var cellBackgroundColor: UIColor
     
     /// Menu cell separtor line background color
-    var cellSeparatorColor: UIColor
+    public var cellSeparatorColor: UIColor
     
     /// Menu cell text label color
-    var cellTextLabelColor: UIColor
+    public var cellTextLabelColor: UIColor
     
     /// Menu cell text label font
-    var cellTextLabelFont: UIFont
+    public var cellTextLabelFont: UIFont
     
     /// Menu cell selected background color default is nil
     /// if nil will not set selected background color
-    var cellSelectedBackgroundColor: UIColor?
+    public var cellSelectedBackgroundColor: UIColor?
     
     /// Menu cell when selected the text label color will change
-    var cellSelectedTextLabelColor: UIColor
+    public var cellSelectedTextLabelColor: UIColor
     
     /// Text alignment default is **CENTER**
-    var cellTextLabelAlignment: NSTextAlignment
+    public var cellTextLabelAlignment: NSTextAlignment
     
     /// Menu cell icon
-    var cellIconImage: UIImage?
+    public var cellIconImage: UIImage?
     
     static func `default`() -> BerryCellProperty {
         

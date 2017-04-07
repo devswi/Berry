@@ -11,15 +11,15 @@ import Foundation
 public struct BerryMaskProperty {
     
     /// Background Color of mask view
-    var maskBackgroundColor: UIColor?
+    public var maskBackgroundColor: UIColor
     
     /// Opacity mask background view
-    var maskBackgroundOpacity: CGFloat
+    public var maskBackgroundOpacity: CGFloat
     
     static func `default`() -> BerryMaskProperty {
         
-        return BerryMaskProperty(maskBackgroundColor: nil,
-                                 maskBackgroundOpacity: 0.5)
+        return BerryMaskProperty(maskBackgroundColor: UIColor.black,
+                                 maskBackgroundOpacity: 0.2)
     }
     
 }

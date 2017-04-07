@@ -16,14 +16,25 @@ public struct BerryMenuItem {
     
     public init(_ title: String, icon: String, iconHighlight: String) {
         self.title = title
-        guard let iconImage = UIImage(named: icon) else {
-            fatalError("Normal icon image not found")
+        
+        if icon.isEmpty {
+            self.iconImage = nil
+        } else {
+            guard let iconImage = UIImage(named: icon) else {
+                fatalError("Normal icon image not found")
+            }
+            self.iconImage = iconImage
         }
-        self.iconImage = iconImage
-        guard let iconHighlightImage = UIImage(named: iconHighlight) else {
-            fatalError("Highlight icon image not found")
+        
+        if iconHighlight.isEmpty {
+            self.iconHighlightImage = nil
+        } else {
+            guard icon.isEmpty, let iconHighlightImage = UIImage(named: iconHighlight) else {
+                fatalError("Highlight icon image not found")
+            }
+            self.iconHighlightImage = iconHighlightImage
         }
-        self.iconHighlightImage = iconHighlightImage
+        
     }
     
 }

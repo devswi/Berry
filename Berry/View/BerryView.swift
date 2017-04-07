@@ -92,7 +92,9 @@ public class BerryView: UIView {
     fileprivate var menuArrow: UIImageView!
     fileprivate var menuWrapper: UIView!
     fileprivate var backgroundView: UIView!
+    fileprivate var tableViewContainerView: UIView!
     fileprivate var tableView: BerryTableView!
+    fileprivate var tableViews: [BerryTableView] = []
     
     fileprivate var items: [BerryMenuItem] = []
     fileprivate var berryConfig = BerryConfig.default()
@@ -115,7 +117,38 @@ public class BerryView: UIView {
         }
     }
     
-    public init(navigationController: UINavigationController?, containerView: UIView, selectedIndex: Int, items: [BerryMenuItem]) {
+    ///
+    /// This method can used to create Berry menu, the coloums of this menu without any restriction
+    ///
+    /// - parameter navigationController: UINavigationController will changed when menu was selected
+    /// - parameter containerView:
+    /// - parameter selectedIndexs: The index of the menu which is selected
+    /// - parameter items: Menu items
+    /// - parameter config: BerryConfig default is **BerryConfig.default()**
+    ///
+//    public init(navigationController: UINavigationController?,
+//                containerView: UIView,
+//                selectedIndexs: [Int],
+//                items: [BerryMenuItem],
+//                config: BerryConfig = BerryConfig.default()) {
+//        
+//    }
+    
+    ///
+    /// This method can used to create Berry menu, but the coloums of this menu just can be only **1**
+    ///
+    /// - parameter navigationController: UINavigationController will changed when menu was selected
+    /// - parameter containerView: 
+    /// - parameter selectedIndex: The index of the menu which is selected
+    /// - parameter items: Menu items
+    /// - parameter config: BerryConfig default is **BerryConfig.default()**
+    ///
+    public init(navigationController: UINavigationController?,
+                containerView: UIView,
+                selectedIndex: Int,
+                items: [BerryMenuItem],
+                config: BerryConfig = BerryConfig.default()) {
+        
         guard let window = UIApplication.shared.keyWindow else {
             super.init(frame: .zero)
             return
@@ -127,13 +160,21 @@ public class BerryView: UIView {
             self.navigationController = window.rootViewController?.topViewController?.navigationController
         }
         
+        self.berryConfig = config
+        
         let title = items[selectedIndex].title
         
         // Title size
         let titleSize = (title as NSString).size(attributes: [NSFontAttributeName: berryConfig.menuProperty.menuTitleFont])
         
-        guard let arrowImageName = berryConfig.arrowProperty.arrowImage, let arrowImage = UIImage(named: arrowImageName) else {
-            fatalError("Arrow image was not found")
+        var arrowImage = UIImage()
+        
+        if let arrowImageName = berryConfig.arrowProperty.arrowImage {
+            if let _arrowImage = UIImage(named: arrowImageName) {
+                arrowImage = _arrowImage
+            } else {
+                fatalError("Arrow image was not found")
+            }
         }
         
         // Init frame
@@ -157,13 +198,14 @@ public class BerryView: UIView {
         menuTitleLabel.font = berryConfig.menuProperty.menuTitleFont
         menuTitleLabel.textAlignment = berryConfig.cellProperty.cellTextLabelAlignment
         
-        menuArrow = UIImageView(image: arrowImage.withRenderingMode(.alwaysTemplate))
-        menuArrow.tintColor = berryConfig.arrowProperty.arrowTintColor
-        
         addSubview(menuButton)
         menuButton.addSubview(menuTitleLabel)
-        menuButton.addSubview(menuArrow)
         
+        if arrowImage.size.width != 0 {
+            menuArrow = UIImageView(image: arrowImage.withRenderingMode(.alwaysTemplate))
+            menuArrow.tintColor = berryConfig.arrowProperty.arrowTintColor
+            menuButton.addSubview(menuArrow)
+        }
         
         let menuWrapperBounds = window.bounds
         
@@ -179,33 +221,17 @@ public class BerryView: UIView {
                                                              action: #selector(BerryView.hideMenu))
         backgroundView.addGestureRecognizer(backgroundTapRecognizer)
         
-        // Setup TableView
-        tableView = BerryTableView(frame: CGRect(x: menuWrapperBounds.origin.x,
-                                                 y: -300.0,
-                                                 width: menuWrapperBounds.width,
-                                                 height: 300.0 + berryConfig.cellProperty.cellHeight * CGFloat(items.count)),
-                                   items: items,
-                                   selectedIndex: selectedIndex,
-                                   config: berryConfig)
+        // Setup TableView Container View
+        tableViewContainerView = UIView(frame: CGRect(x: menuWrapperBounds.origin.x,
+                                                      y: -realityHeight(),
+                                                      width: menuWrapperBounds.width,
+                                                      height: realityHeight()))
+        tableViewContainerView.backgroundColor = berryConfig.cellProperty.cellBackgroundColor
         
-        tableView.layer.cornerRadius = 5.0
-        tableView.layer.masksToBounds = true
-        tableView.selectRowAtIndexPathClosure = {
-            [weak self] selectedIndex in
-            guard let `self` = self else {
-                return
-            }
-            if let closure = self.didSelectedItemAtIndex {
-                closure(selectedIndex)
-            }
-            self.menuTitleLabel.text = self.items[selectedIndex].title
-            
-            self.hideMenu()
-            self.layoutSubviews()
-        }
+        assembleBerryTableView(menuWrapperBounds, selectedIndex: selectedIndex)
         
         menuWrapper.addSubview(backgroundView)
-        menuWrapper.addSubview(tableView)
+        menuWrapper.addSubview(tableViewContainerView)
         containerView.addSubview(menuWrapper)
         
         menuWrapper.isHidden = true
@@ -220,8 +246,10 @@ public class BerryView: UIView {
                                         y: frame.size.height * 0.5)
         menuTitleLabel.textColor = berryConfig.menuProperty.menuTitleColor
         
-        menuArrow.center = CGPoint(x: menuTitleLabel.frame.maxX + berryConfig.arrowProperty.arrowPadding,
-                                   y: frame.size.height * 0.5)
+        if menuArrow != nil {
+            menuArrow.center = CGPoint(x: menuTitleLabel.frame.maxX + berryConfig.arrowProperty.arrowPadding,
+                                       y: frame.size.height * 0.5)
+        }
         
         menuWrapper.frame.origin.y = (navigationController?.navigationBar.frame.maxY)!
         tableView.reloadData()
@@ -247,23 +275,18 @@ public class BerryView: UIView {
         isShown = false
         menuButton.isUserInteractionEnabled = false
         
-        //Rotate Arrow
-        rotateArrowAnimation()
+        // Rotate Arrow
+        if menuArrow != nil { rotateArrowAnimation() }
         
-        //Wapper Animation
+        // Wapper Animation
         backgroundView.alpha = berryConfig.maskProperty.maskBackgroundOpacity
         
-        UIView.animate(withDuration: berryConfig.otherProperty.duration,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0.5,
-                       options: UIViewAnimationOptions(),
-                       animations: {
-                        self.tableView.frame.origin.y = -CGFloat(self.items.count) * self.berryConfig.cellProperty.cellHeight - 300.0
-                        self.backgroundView.alpha = 0
-        }) { finished in
-            self.menuWrapper.isHidden = true
-            self.menuButton.isUserInteractionEnabled = true
+        UIView.animate(withDuration: berryConfig.otherProperty.duration, delay: 0, options: .curveEaseInOut, animations: { 
+            self.tableViewContainerView.frame.origin.y = -self.realityHeight()
+            self.backgroundView.alpha = 0
+        }) { (finished) in
+            self.menuWrapper.isHidden = finished
+            self.menuButton.isUserInteractionEnabled = finished
         }
     }
     
@@ -273,47 +296,59 @@ public class BerryView: UIView {
         
         menuWrapper.frame.origin.y = navigationController?.navigationBar.frame.maxY ?? 64.0
         
-        let tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 300))
-        tableHeaderView.backgroundColor = berryConfig.cellProperty.cellBackgroundColor
-        tableView.tableHeaderView = tableHeaderView
+        // Rotate Arrow
+        if menuArrow != nil { rotateArrowAnimation() }
         
-        //Rotate Arrow
-        rotateArrowAnimation()
-        
-        //Wapper Animation
+        // Wapper Animation
         menuWrapper.isHidden = false
         backgroundView.alpha = 0
         
-        tableView.frame.origin.y = -CGFloat(items.count) * berryConfig.cellProperty.cellHeight - 300.0
-        tableView.reloadData()
-        
         menuWrapper.superview?.bringSubview(toFront: menuWrapper)
         
-        UIView.animate(withDuration: berryConfig.otherProperty.duration,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0.5,
-                       options: UIViewAnimationOptions(),
-                       animations: {
-                            self.tableView.frame.origin.y = CGFloat(-300.0)
-                            self.backgroundView.alpha = self.berryConfig.maskProperty.maskBackgroundOpacity
-                        }
-        ) { finished in
-            self.menuButton.isUserInteractionEnabled = true
+        UIView.animate(withDuration:  berryConfig.otherProperty.duration, delay: 0, options: .curveEaseInOut, animations: {
+            self.tableViewContainerView.frame.origin.y = 0
+            self.backgroundView.alpha = self.berryConfig.maskProperty.maskBackgroundOpacity
+        }) { (finsished) in
+            self.menuButton.isUserInteractionEnabled = finsished
         }
     }
     
     fileprivate func rotateArrowAnimation() {
         UIView.animate(withDuration: berryConfig.otherProperty.duration) { [weak self] in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             strongSelf.menuArrow.transform = strongSelf.menuArrow.transform.rotated(by: 180 * CGFloat(Double.pi/180))
         }
     }
     
     fileprivate func realityHeight() -> CGFloat {
         return CGFloat(berryConfig.menuProperty.menuMaxShowingRows) * berryConfig.cellProperty.cellHeight
+    }
+    
+    fileprivate func assembleBerryTableView(_ menuWrapperBounds: CGRect, selectedIndex: Int) {
+        tableView = BerryTableView(frame: CGRect(x: 0,
+                                                 y: 0,
+                                                 width: menuWrapperBounds.width / CGFloat(berryConfig.menuProperty.menuColoums),
+                                                 height: realityHeight()),
+                                   items: items,
+                                   selectedIndex: selectedIndex,
+                                   config: berryConfig)
+        
+        tableView.layer.cornerRadius = 5.0
+        tableView.layer.masksToBounds = true
+        tableView.selectRowAtIndexPathClosure = {
+            [weak self] selectedIndex in
+            guard let `self` = self else {
+                return
+            }
+            if let closure = self.didSelectedItemAtIndex {
+                closure(selectedIndex)
+            }
+            self.menuTitleLabel.text = self.items[selectedIndex].title
+            
+            self.hideMenu()
+            self.layoutSubviews()
+        }
+        tableViewContainerView.addSubview(tableView)
     }
 
 }
