@@ -44,16 +44,20 @@ public struct BerryCellProperty {
     /// Text alignment default is **CENTER**
     var cellTextLabelAlignment: NSTextAlignment
     
+    /// Menu cell icon
+    var cellIconImage: UIImage?
+    
     static func `default`() -> BerryCellProperty {
         
         return BerryCellProperty(cellStyle: .nonImage,
-                                 cellHeight: 44.0,
+                                 cellHeight: BerryConstant.defaultCellHeight,
                                  cellBackgroundColor: UIColor.white,
                                  cellSeparatorColor: UIColor(red: 219/255.0, green: 219/255.0, blue: 219/255.0, alpha: 1.0),
                                  cellTextLabelColor: UIColor.darkText,
                                  cellTextLabelFont: UIFont.systemFont(ofSize: 14),
                                  cellSelectedBackgroundColor: nil,
                                  cellSelectedTextLabelColor: UIColor(red: 81/255.0, green: 166/255.0, blue: 1.0, alpha: 1.0),
-                                 cellTextLabelAlignment: NSTextAlignment.center)
+                                 cellTextLabelAlignment: NSTextAlignment.center,
+                                 cellIconImage: nil)
     }
 }

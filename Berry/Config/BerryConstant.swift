@@ -12,5 +12,7 @@ public struct BerryConstant {
     
     static let defaultCellHeight: CGFloat = 44.0
     static let defaultMaxColoums: Int = 1
+    static let defaultMaxShowingRows: Int = 5
     
+    static let defaultIconSize: CGSize = CGSize(width: 16, height: 16)
 }

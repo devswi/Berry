@@ -10,20 +10,14 @@ import Foundation
 
 public class BerryConfig {
     
-    public var menuProperty: BerryMenuProperty?
-    public var cellProperty: BerryCellProperty?
-    public var arrowProperty: BerryArrowProperty?
-    public var maskProperty: BerryMaskProperty?
-    public var otherProperty: BerryOtherProperty?
+    public var menuProperty: BerryMenuProperty = BerryMenuProperty.default()
+    public var cellProperty: BerryCellProperty = BerryCellProperty.default()
+    public var arrowProperty: BerryArrowProperty = BerryArrowProperty.default()
+    public var maskProperty: BerryMaskProperty = BerryMaskProperty.default()
+    public var otherProperty: BerryOtherProperty = BerryOtherProperty.default()
     
     public class func `default`() -> BerryConfig {
-        let config = BerryConfig()
-        config.menuProperty = BerryMenuProperty.default()
-        config.cellProperty = BerryCellProperty.default()
-        config.arrowProperty = BerryArrowProperty.default()
-        config.maskProperty = BerryMaskProperty.default()
-        config.otherProperty = BerryOtherProperty.default()
-        return config
+        return BerryConfig()
     }
     
     public class func config(menuProperty: BerryMenuProperty,

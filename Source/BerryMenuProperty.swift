@@ -16,7 +16,7 @@ public struct BerryMenuProperty {
     /// The font of menu title **default** is **systemFont(ofSize: 16)**
     var menuTitleFont: UIFont
     
-    /// The max number of rows showing on the menu, default is **3**
+    /// The max number of rows showing on the menu, default is **5**
     var menuMaxShowingRows: Int
     
     /// The number of coloum on the menu, default is **1**
@@ -26,7 +26,7 @@ public struct BerryMenuProperty {
         
         return BerryMenuProperty(menuTitleColor: UIColor.white,
                                  menuTitleFont: UIFont.systemFont(ofSize: 16),
-                                 menuMaxShowingRows: 3,
-                                 menuColoums: 1)
+                                 menuMaxShowingRows: BerryConstant.defaultMaxShowingRows,
+                                 menuColoums: BerryConstant.defaultMaxColoums)
     }
 }

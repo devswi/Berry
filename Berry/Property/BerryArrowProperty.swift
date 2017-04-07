@@ -11,7 +11,7 @@ import UIKit
 public struct BerryArrowProperty {
     
     /// 
-    var arrowTineColor: UIColor
+    var arrowTintColor: UIColor
     
     /// Arrow padding default is 10
     var arrowPadding: CGFloat
@@ -23,11 +23,11 @@ public struct BerryArrowProperty {
      *
      * if nil will not set arrow image
      */
-    var arrowImage: UIImage?
+    var arrowImage: String?
     
     static func `default`() -> BerryArrowProperty {
         
-        return BerryArrowProperty(arrowTineColor: UIColor.white,
+        return BerryArrowProperty(arrowTintColor: UIColor.white,
                                   arrowPadding: 10.0,
                                   arrowImage: nil)
     }
