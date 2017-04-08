@@ -13,9 +13,9 @@ public typealias SelectRowAtIndexPathClosure = ((_ row: Int) -> ())
 public class BerryTableView: UITableView {
 
     public var selectRowAtIndexPathClosure: SelectRowAtIndexPathClosure?
+    public var berry: [BerryMenuItem] = []
     
     fileprivate var selectedIndex: Int = 0
-    fileprivate var berry: [BerryMenuItem] = []
     fileprivate var berryConfig: BerryConfig = BerryConfig.default()
     fileprivate let kBerryCellReuseIdentifier = "BerryTableViewCell"
     
@@ -28,6 +28,7 @@ public class BerryTableView: UITableView {
         
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
+        bounces = false
         delegate = self
         dataSource = self
         separatorStyle = .none
@@ -106,7 +107,9 @@ extension BerryTableView: UITableViewDelegate {
         
         if coloums > BerryConstant.defaultMaxColoums { // Show vertical separator
             tableCell.cellSepartorVertical?.separatorColor = berryConfig.cellProperty.cellSeparatorColor
-            tableCell.cellSepartorVertical?.isHidden = isSelectedIndex(indexPath.row)
+            if berryConfig.cellProperty.hideVerticalSeparator {
+                tableCell.cellSepartorVertical?.isHidden = isSelectedIndex(indexPath.row)
+            }
         }
     }
     

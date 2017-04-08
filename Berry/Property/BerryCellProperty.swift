@@ -47,6 +47,8 @@ public struct BerryCellProperty {
     /// Menu cell icon
     public var cellIconImage: UIImage?
     
+    public var hideVerticalSeparator: Bool
+    
     static func `default`() -> BerryCellProperty {
         
         return BerryCellProperty(cellStyle: .nonImage,
@@ -58,6 +60,7 @@ public struct BerryCellProperty {
                                  cellSelectedBackgroundColor: nil,
                                  cellSelectedTextLabelColor: UIColor(red: 81/255.0, green: 166/255.0, blue: 1.0, alpha: 1.0),
                                  cellTextLabelAlignment: NSTextAlignment.center,
-                                 cellIconImage: nil)
+                                 cellIconImage: nil,
+                                 hideVerticalSeparator: true)
     }
 }

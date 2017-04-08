@@ -37,11 +37,11 @@ class BerryTypeOneViewController: UIViewController {
                               selectedIndex: [selectedStageIndex],
                               items: items)
         
-        berry.didSelectedItemAtIndex = { [weak self] selectedIndex in
+        berry.didSelectedRowsAtIndexPath = { [weak self] (from: Int, at: Int) in
             guard let `self` = self else { return }
             
             self.lastStageIndex = self.selectedStageIndex
-            self.selectedStageIndex = selectedIndex
+            self.selectedStageIndex = at
             
             if self.lastStageIndex != self.selectedStageIndex {
                 print("\(self.items[self.selectedStageIndex].title) selected")

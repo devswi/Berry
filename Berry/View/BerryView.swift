@@ -8,11 +8,10 @@
 
 import UIKit
 
-public typealias SelectRowsAtIndexPathClosure = ((_ index: (fromTable: Int, at: Int)) -> ())
+public typealias SelectRowsAtIndexPathClosure = ((_ index: (coloum: Int, row: Int)) -> ())
 
 public class BerryView: UIView {
 
-    public var didSelectedItemAtIndex: SelectRowAtIndexPathClosure?
     public var didSelectedRowsAtIndexPath: SelectRowsAtIndexPathClosure?
     
     public var isShown: Bool = false
@@ -97,10 +96,11 @@ public class BerryView: UIView {
     fileprivate var menuWrapper: UIView!
     fileprivate var backgroundView: UIView!
     fileprivate var tableViewContainerView: UIView!
-    fileprivate var tableViews: [BerryTableView] = []
+    fileprivate var tableViews: Dictionary<Int, BerryTableView> = Dictionary<Int, BerryTableView>()
     
-    fileprivate var items: [BerryMenuItem] = []
     fileprivate var berryConfig = BerryConfig.default()
+    fileprivate var items: [BerryMenuItem] = []
+    fileprivate var storeItems: Dictionary<Int, [BerryMenuItem]> = Dictionary<Int, [BerryMenuItem]>()
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -245,7 +245,9 @@ public class BerryView: UIView {
         }
         
         menuWrapper.frame.origin.y = (navigationController?.navigationBar.frame.maxY)!
-        tableViews.forEach { $0.reloadData() }
+        tableViews.forEach { (_, tableView) in
+            tableView.reloadData()
+        }
     }
     
     // MARK: - Private Methods
@@ -334,26 +336,49 @@ public class BerryView: UIView {
                                            config: berryConfig)
             
             tableView.layer.masksToBounds = true
-            tableView.backgroundColor = UIColor(red: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1.0)
+            tableView.backgroundColor = self.berryConfig.menuProperty.menuBackgroundColor
             tableView.selectRowAtIndexPathClosure = {
                 [weak self] selectedIndex in
-                guard let `self` = self else {
-                    return
-                }
-                if let closure = self.didSelectedItemAtIndex {
-                    closure(selectedIndex)
-                }
-                self.menuTitleLabel.text = self.items[selectedIndex].title
                 
-                // if the count of menu's coloum is one, hide menu automatically
-                if self.berryConfig.menuProperty.menuColoums == 1 { self.hideMenu() }
+                guard let `self` = self else { return }
+                
+                if let closure = self.didSelectedRowsAtIndexPath { closure(coloum: index, row: selectedIndex) }
+                
+                // If the count of menu's coloum is one, hide menu automatically
+                if self.berryConfig.menuProperty.menuColoums == 1 {
+                    self.menuTitleLabel.text = items[selectedIndex].title
+                    self.hideMenu()
+                } else {
+                    self.reloadTableViews(index, at: selectedIndex)
+                }
                 
                 self.layoutSubviews()
             }
             self.tableViewContainerView.addSubview(tableView)
-            self.tableViews.append(tableView)
+            self.tableViews[index] = tableView
             
-            items = self.items[selectedIndex[index]].menuSubItem
+            if self.berryConfig.menuProperty.menuColoums != 1 {
+                self.storeItems[index] = items
+                items = items[selectedIndex.first ?? 0].menuSubItem
+            }
+        }
+    }
+    
+    fileprivate func reloadTableViews(_ from: Int, at: Int) {
+        if from != (berryConfig.menuProperty.menuColoums - 1) { // The last one don't need to reload
+            ((from + 1) ..< berryConfig.menuProperty.menuColoums).forEach({ (index) in
+                
+                var newData: [BerryMenuItem] = self.storeItems[index - 1] ?? []
+                
+                if newData.count > 0 { newData = newData[at].menuSubItem }
+                
+                self.storeItems.updateValue(newData, forKey: index)
+                
+                if let tableView = self.tableViews[index] {
+                    tableView.berry = newData
+                    tableView.reloadData()
+                }
+            })
         }
     }
 
