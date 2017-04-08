@@ -34,7 +34,7 @@ public class BerryTableViewCell: UITableViewCell {
         contentView.backgroundColor = menuConfig.cellProperty.cellBackgroundColor
         selectionStyle = .none
         
-        let textAlignment = menuConfig.cellProperty.cellTextLabelAlignment
+        let textAlignment = isMultiColoums ? .center : menuConfig.cellProperty.cellTextLabelAlignment
         
         textLabel?.textColor = menuConfig.cellProperty.cellTextLabelColor
         textLabel?.font = menuConfig.cellProperty.cellTextLabelFont
@@ -66,10 +66,9 @@ public class BerryTableViewCell: UITableViewCell {
         default: break
         }
         
-        // If memu just have only one coloum, icon image will be hidden
-        if let icon = menuConfig.cellProperty.cellIconImage, BerryConstant.defaultMaxColoums == coloums {
+        // If memu has more than one coloum, icon image will be hidden
+        if BerryConstant.defaultMaxColoums == coloums {
             iconImageView = UIImageView(frame: iconImageViewFrame)
-            iconImageView?.image = icon
             iconImageView?.contentMode = .scaleAspectFill
             contentView.addSubview(iconImageView!)
         }
@@ -96,6 +95,17 @@ public class BerryTableViewCell: UITableViewCell {
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    public override func layoutSubviews() {
+        bounds = cellContentFrame
+        contentView.frame = bounds
+    }
+    
+    fileprivate var isMultiColoums: Bool {
+        get {
+            return menuConfig.menuProperty.menuColoums != BerryConstant.defaultMaxColoums
+        }
     }
 
 }

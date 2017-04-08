@@ -1,25 +1,25 @@
 //
-//  BerryTypeThreeViewController.swift
+//  BerryTypeSixViewController.swift
 //  Examples
 //
-//  Created by shiwei on 07/04/2017.
+//  Created by shiwei on 08/04/2017.
 //  Copyright © 2017 shiwei. All rights reserved.
 //
 
 import UIKit
 import Berry
 
-class BerryTypeThreeViewController: UIViewController {
-    
+class BerryTypeSixViewController: UIViewController {
+
     fileprivate var items: [BerryMenuItem] = []
-    fileprivate var selectedStageIndex: [Int] = [0, 0, 0]
-    fileprivate var lastStageIndex: [Int] = [0, 0, 0]
+    fileprivate var selectedStageIndex: [Int] = [0, 0]
+    fileprivate var lastStageIndex: [Int] = [0, 0]
     fileprivate var berryView: BerryView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Berry Type 03"
+        
+        self.title = "Berry Type 04"
         
         items = assembleSubItem()
         
@@ -50,9 +50,9 @@ class BerryTypeThreeViewController: UIViewController {
     fileprivate func setupBerryMenu() {
         
         let config = BerryConfig.default()
-        config.menuProperty.menuColoums = 3
-        config.menuProperty.menuMaxShowingRows = 7
-        config.cellProperty.hideVerticalSeparator = false
+        config.menuProperty.menuColoums = 2
+        config.menuProperty.menuMaxShowingRows = 10
+        config.cellProperty.hideVerticalSeparator = true
         
         let berry = BerryView(navigationController: navigationController,
                               containerView: view,
@@ -78,7 +78,7 @@ class BerryTypeThreeViewController: UIViewController {
         var items: [BerryMenuItem] = []
         
         do {
-            if let file = Bundle.main.path(forResource: "address3", ofType: "json") {
+            if let file = Bundle.main.path(forResource: "address2", ofType: "json") {
                 
                 let data = try Data(contentsOf: URL(fileURLWithPath: file))
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
@@ -87,13 +87,9 @@ class BerryTypeThreeViewController: UIViewController {
                     object.forEach({ (key, value) in
                         var sub: [BerryMenuItem] = []
                         
-                        if let _value = value as? Dictionary<String, [String]> {
-                            _value.forEach({ (key, value) in
-                                var _sub: [BerryMenuItem] = []
-                                value.forEach({ (town) in
-                                    _sub.append(BerryMenuItem(town, icon: "", iconHighlight: ""))
-                                })
-                                sub.append(BerryMenuItem(key, icon: "", iconHighlight: "", menuSubItem: _sub))
+                        if let _value = value as? [String] {
+                            _value.forEach({ town in
+                                sub.append(BerryMenuItem(town, icon: "", iconHighlight: "", menuSubItem: []))
                             })
                         }
                         items.append(BerryMenuItem(key, icon: "", iconHighlight: "", menuSubItem: sub))

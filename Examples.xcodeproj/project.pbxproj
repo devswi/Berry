@@ -21,6 +21,16 @@
 		892378241E9789F40081A65B /* BerryTypeOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892378231E9789F40081A65B /* BerryTypeOneViewController.swift */; };
 		892378261E978D560081A65B /* BerryTypeTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892378251E978D560081A65B /* BerryTypeTwoViewController.swift */; };
 		892378281E9795610081A65B /* BerryTypeThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892378271E9795610081A65B /* BerryTypeThreeViewController.swift */; };
+		899424261E98AF6900045F69 /* address2.json in Resources */ = {isa = PBXBuildFile; fileRef = 8994241F1E98AF6900045F69 /* address2.json */; };
+		899424271E98AF6900045F69 /* address3.json in Resources */ = {isa = PBXBuildFile; fileRef = 899424201E98AF6900045F69 /* address3.json */; };
+		899424281E98AF6900045F69 /* address4.json in Resources */ = {isa = PBXBuildFile; fileRef = 899424211E98AF6900045F69 /* address4.json */; };
+		899424291E98AF6900045F69 /* areas.json in Resources */ = {isa = PBXBuildFile; fileRef = 899424221E98AF6900045F69 /* areas.json */; };
+		8994242A1E98AF6900045F69 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 899424231E98AF6900045F69 /* cities.json */; };
+		8994242B1E98AF6900045F69 /* provinces.json in Resources */ = {isa = PBXBuildFile; fileRef = 899424241E98AF6900045F69 /* provinces.json */; };
+		8994242C1E98AF6900045F69 /* streets.json in Resources */ = {isa = PBXBuildFile; fileRef = 899424251E98AF6900045F69 /* streets.json */; };
+		8994242E1E98BE3B00045F69 /* BerryTypeFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994242D1E98BE3B00045F69 /* BerryTypeFourViewController.swift */; };
+		899424301E98C71100045F69 /* BerryTypeFiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994242F1E98C71100045F69 /* BerryTypeFiveViewController.swift */; };
+		899424321E98C9A500045F69 /* BerryTypeSixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899424311E98C9A500045F69 /* BerryTypeSixViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +89,16 @@
 		892378231E9789F40081A65B /* BerryTypeOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryTypeOneViewController.swift; sourceTree = "<group>"; };
 		892378251E978D560081A65B /* BerryTypeTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryTypeTwoViewController.swift; sourceTree = "<group>"; };
 		892378271E9795610081A65B /* BerryTypeThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryTypeThreeViewController.swift; sourceTree = "<group>"; };
+		8994241F1E98AF6900045F69 /* address2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = address2.json; sourceTree = "<group>"; };
+		899424201E98AF6900045F69 /* address3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = address3.json; sourceTree = "<group>"; };
+		899424211E98AF6900045F69 /* address4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = address4.json; sourceTree = "<group>"; };
+		899424221E98AF6900045F69 /* areas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = areas.json; sourceTree = "<group>"; };
+		899424231E98AF6900045F69 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		899424241E98AF6900045F69 /* provinces.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = provinces.json; sourceTree = "<group>"; };
+		899424251E98AF6900045F69 /* streets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = streets.json; sourceTree = "<group>"; };
+		8994242D1E98BE3B00045F69 /* BerryTypeFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryTypeFourViewController.swift; sourceTree = "<group>"; };
+		8994242F1E98C71100045F69 /* BerryTypeFiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryTypeFiveViewController.swift; sourceTree = "<group>"; };
+		899424311E98C9A500045F69 /* BerryTypeSixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryTypeSixViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +144,7 @@
 			children = (
 				892378191E97813C0081A65B /* ExampleList */,
 				892378201E9788620081A65B /* ExampleType */,
+				8994241E1E98AF6900045F69 /* dist */,
 				892377B61E9646390081A65B /* AppDelegate.swift */,
 				892377BA1E9646390081A65B /* Main.storyboard */,
 				892377BF1E9646390081A65B /* LaunchScreen.storyboard */,
@@ -167,8 +188,25 @@
 				892378231E9789F40081A65B /* BerryTypeOneViewController.swift */,
 				892378251E978D560081A65B /* BerryTypeTwoViewController.swift */,
 				892378271E9795610081A65B /* BerryTypeThreeViewController.swift */,
+				8994242D1E98BE3B00045F69 /* BerryTypeFourViewController.swift */,
+				8994242F1E98C71100045F69 /* BerryTypeFiveViewController.swift */,
+				899424311E98C9A500045F69 /* BerryTypeSixViewController.swift */,
 			);
 			path = ExampleType;
+			sourceTree = "<group>";
+		};
+		8994241E1E98AF6900045F69 /* dist */ = {
+			isa = PBXGroup;
+			children = (
+				8994241F1E98AF6900045F69 /* address2.json */,
+				899424201E98AF6900045F69 /* address3.json */,
+				899424211E98AF6900045F69 /* address4.json */,
+				899424221E98AF6900045F69 /* areas.json */,
+				899424231E98AF6900045F69 /* cities.json */,
+				899424241E98AF6900045F69 /* provinces.json */,
+				899424251E98AF6900045F69 /* streets.json */,
+			);
+			path = dist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,8 +312,15 @@
 			files = (
 				892377C11E9646390081A65B /* LaunchScreen.storyboard in Resources */,
 				892378181E9778320081A65B /* Assets.xcassets in Resources */,
+				899424271E98AF6900045F69 /* address3.json in Resources */,
+				8994242C1E98AF6900045F69 /* streets.json in Resources */,
 				8923781F1E9782040081A65B /* BerryListTableViewCell.xib in Resources */,
+				899424281E98AF6900045F69 /* address4.json in Resources */,
+				899424261E98AF6900045F69 /* address2.json in Resources */,
+				8994242A1E98AF6900045F69 /* cities.json in Resources */,
+				899424291E98AF6900045F69 /* areas.json in Resources */,
 				892377BC1E9646390081A65B /* Main.storyboard in Resources */,
+				8994242B1E98AF6900045F69 /* provinces.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,13 +338,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				899424321E98C9A500045F69 /* BerryTypeSixViewController.swift in Sources */,
 				8923781B1E97814B0081A65B /* BerryListViewController.swift in Sources */,
 				892378281E9795610081A65B /* BerryTypeThreeViewController.swift in Sources */,
 				892378241E9789F40081A65B /* BerryTypeOneViewController.swift in Sources */,
+				899424301E98C71100045F69 /* BerryTypeFiveViewController.swift in Sources */,
 				8923781E1E9782040081A65B /* BerryListTableViewCell.swift in Sources */,
 				892378221E9788D70081A65B /* BerryListConfig.swift in Sources */,
 				892378261E978D560081A65B /* BerryTypeTwoViewController.swift in Sources */,
 				892377B71E9646390081A65B /* AppDelegate.swift in Sources */,
+				8994242E1E98BE3B00045F69 /* BerryTypeFourViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

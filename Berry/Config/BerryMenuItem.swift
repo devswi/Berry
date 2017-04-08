@@ -31,7 +31,7 @@ public struct BerryMenuItem {
         if iconHighlight.isEmpty {
             self.iconHighlightImage = nil
         } else {
-            guard icon.isEmpty, let iconHighlightImage = UIImage(named: iconHighlight) else {
+            guard let iconHighlightImage = UIImage(named: iconHighlight) else {
                 fatalError("Highlight icon image not found")
             }
             self.iconHighlightImage = iconHighlightImage

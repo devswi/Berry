@@ -144,6 +144,8 @@ public class BerryView: UIView {
             fatalError("Menu coloums did not equal to data counts")
         }
         
+        guard !items.isEmpty else { fatalError("Menu items is empty") }
+        
         if let navigationController = navigationController {
             self.navigationController = navigationController
         } else {
@@ -276,10 +278,17 @@ public class BerryView: UIView {
         // Wapper Animation
         backgroundView.alpha = berryConfig.maskProperty.maskBackgroundOpacity
         
-        UIView.animate(withDuration: berryConfig.otherProperty.duration, delay: 0, options: .curveEaseInOut, animations: { 
-            self.tableViewContainerView.frame.origin.y = -self.realityHeight()
-            self.backgroundView.alpha = 0
-        }) { (finished) in
+        UIView.animate(withDuration: berryConfig.otherProperty.duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.5,
+                       options: UIViewAnimationOptions(), animations: {
+                        self.tableViewContainerView.frame.origin.y = -self.realityHeight()
+                        self.backgroundView.alpha = 0
+                        self.tableViews.forEach({ (_, tableView) in
+                            tableView.alpha = 0
+                        })
+        }) { finished in
             self.menuWrapper.isHidden = finished
             self.menuButton.isUserInteractionEnabled = finished
         }
@@ -300,11 +309,18 @@ public class BerryView: UIView {
         
         menuWrapper.superview?.bringSubview(toFront: menuWrapper)
         
-        UIView.animate(withDuration:  berryConfig.otherProperty.duration, delay: 0, options: .curveEaseInOut, animations: {
-            self.tableViewContainerView.frame.origin.y = 0
-            self.backgroundView.alpha = self.berryConfig.maskProperty.maskBackgroundOpacity
-        }) { (finsished) in
-            self.menuButton.isUserInteractionEnabled = finsished
+        UIView.animate(withDuration: berryConfig.otherProperty.duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.5,
+                       options: UIViewAnimationOptions(), animations: {
+                        self.tableViewContainerView.frame.origin.y = -CGFloat.spacing
+                        self.backgroundView.alpha = self.berryConfig.maskProperty.maskBackgroundOpacity
+                        self.tableViews.forEach({ (_, tableView) in
+                            tableView.alpha = 1
+                        })
+        }) { finished in
+            self.menuButton.isUserInteractionEnabled = finished
         }
     }
     
@@ -316,7 +332,7 @@ public class BerryView: UIView {
     }
     
     fileprivate func realityHeight() -> CGFloat {
-        return CGFloat(berryConfig.menuProperty.menuMaxShowingRows) * berryConfig.cellProperty.cellHeight
+        return CGFloat(berryConfig.menuProperty.menuMaxShowingRows) * berryConfig.cellProperty.cellHeight + CGFloat.spacing
     }
     
     fileprivate func assembleBerryTableView(_ menuWrapperBounds: CGRect, selectedIndex: [Int]) {
@@ -328,9 +344,9 @@ public class BerryView: UIView {
             if self.tableViews.count == berryConfig.menuProperty.menuColoums { return }
             
             let tableView = BerryTableView(frame: CGRect(x: tableViewWidth * CGFloat(index),
-                                                         y: 0,
+                                                         y: CGFloat.spacing,
                                                          width: tableViewWidth,
-                                                         height: realityHeight()),
+                                                         height: realityHeight() - CGFloat.spacing),
                                            items: items,
                                            selectedIndex: selectedIndex[index],
                                            config: berryConfig)
@@ -338,28 +354,29 @@ public class BerryView: UIView {
             tableView.layer.masksToBounds = true
             tableView.backgroundColor = self.berryConfig.menuProperty.menuBackgroundColor
             tableView.selectRowAtIndexPathClosure = {
-                [weak self] selectedIndex in
+                [weak self] selectedRowIndex in
                 
                 guard let `self` = self else { return }
                 
-                if let closure = self.didSelectedRowsAtIndexPath { closure(coloum: index, row: selectedIndex) }
+                if let closure = self.didSelectedRowsAtIndexPath { closure(coloum: index, row: selectedRowIndex) }
                 
                 // If the count of menu's coloum is one, hide menu automatically
                 if self.berryConfig.menuProperty.menuColoums == 1 {
-                    self.menuTitleLabel.text = items[selectedIndex].title
+                    self.menuTitleLabel.text = items[selectedRowIndex].title
                     self.hideMenu()
                 } else {
-                    self.reloadTableViews(index, at: selectedIndex)
+                    self.reloadTableViews(index, at: selectedRowIndex)
                 }
                 
                 self.layoutSubviews()
             }
+            tableView.alpha = 0
             self.tableViewContainerView.addSubview(tableView)
             self.tableViews[index] = tableView
             
             if self.berryConfig.menuProperty.menuColoums != 1 {
                 self.storeItems[index] = items
-                items = items[selectedIndex.first ?? 0].menuSubItem
+                items = items.isEmpty ? [] : items[selectedIndex.first ?? 0].menuSubItem
             }
         }
     }
@@ -370,12 +387,13 @@ public class BerryView: UIView {
                 
                 var newData: [BerryMenuItem] = self.storeItems[index - 1] ?? []
                 
-                if newData.count > 0 { newData = newData[at].menuSubItem }
+                if newData.count > 0 { newData = newData[from == (index - 1) ? at : 0].menuSubItem }
                 
                 self.storeItems.updateValue(newData, forKey: index)
                 
                 if let tableView = self.tableViews[index] {
                     tableView.berry = newData
+                    tableView.selectedIndex = 0
                     tableView.reloadData()
                 }
             })

@@ -64,6 +64,9 @@ extension BerryListViewController: UITableViewDelegate {
         case 0: vc = BerryTypeOneViewController()
         case 1: vc = BerryTypeTwoViewController()
         case 2: vc = BerryTypeThreeViewController()
+        case 3: vc = BerryTypeSixViewController()
+        case 4: vc = BerryTypeFourViewController()
+        case 5: vc = BerryTypeFiveViewController()
         default: break
         }
         

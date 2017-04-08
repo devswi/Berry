@@ -14,8 +14,8 @@ public class BerryTableView: UITableView {
 
     public var selectRowAtIndexPathClosure: SelectRowAtIndexPathClosure?
     public var berry: [BerryMenuItem] = []
+    public var selectedIndex: Int = 0
     
-    fileprivate var selectedIndex: Int = 0
     fileprivate var berryConfig: BerryConfig = BerryConfig.default()
     fileprivate let kBerryCellReuseIdentifier = "BerryTableViewCell"
     
@@ -59,6 +59,7 @@ extension BerryTableView: UITableViewDataSource {
                                       reuseIdentifier: kBerryCellReuseIdentifier,
                                       config: berryConfig)
         cell.textLabel?.text = berry[indexPath.row].title
+        cell.iconImageView?.image = berry[indexPath.row].iconImage
         
         return cell
     }
@@ -74,6 +75,9 @@ extension BerryTableView: UITableViewDelegate {
         
         selectedIndex = indexPath.row
         if let selected = selectRowAtIndexPathClosure { selected(indexPath.row) }
+        
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        
         reloadData()
     }
     
@@ -111,10 +115,29 @@ extension BerryTableView: UITableViewDelegate {
                 tableCell.cellSepartorVertical?.isHidden = isSelectedIndex(indexPath.row)
             }
         }
+        
+        if let highlightIcon = berry[indexPath.row].iconHighlightImage {
+            tableCell.iconImageView?.image = isSelectedIndex(indexPath.row) ? highlightIcon : berry[indexPath.row].iconImage
+        }
+        
     }
     
     private func isSelectedIndex(_ row: Int) -> Bool {
         return row == selectedIndex
     }
     
+}
+
+extension BerryTableView: UIScrollViewDelegate {
+    
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        let offset = scrollView.contentOffset.y
+        let cellHeight = berryConfig.cellProperty.cellHeight
+        let rate = lroundf(Float(offset / cellHeight))
+        
+        scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: cellHeight * CGFloat(rate)),
+                                    animated: true
+        )
+    }
 }

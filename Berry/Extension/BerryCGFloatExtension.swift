@@ -10,4 +10,5 @@ import Foundation
 
 extension CGFloat {
     static let half: CGFloat = 0.5
+    static let spacing: CGFloat = 20
 }

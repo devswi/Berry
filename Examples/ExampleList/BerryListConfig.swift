@@ -20,7 +20,10 @@ class BerryListConfig {
         return [
             BerryListStruct(berryType: "Berry Menu Type 01", category: "CENTER TYPE 01", describtion: "Default"),
             BerryListStruct(berryType: "Berry Menu Type 02", category: "CENTER TYPE 02", describtion: "Arrow"),
-            BerryListStruct(berryType: "Berry Menu Type 03", category: "CHAIN REACTION 01", describtion: "Arrow")
+            BerryListStruct(berryType: "Berry Menu Type 03", category: "CHAIN REACTION 01", describtion: "Default"),
+            BerryListStruct(berryType: "Berry Menu Type 04", category: "CHAIN REACTION 02", describtion: "Default"),
+            BerryListStruct(berryType: "Berry Menu Type 05", category: "LEFT TYPE 01", describtion: "Arrow & Icon"),
+            BerryListStruct(berryType: "Berry Menu Type 06", category: "LEFT TYPE 02", describtion: "Arrow & Icon & CellSelectedColor & CellTextLabelSelectedColor"),
         ]
     }
     
