@@ -1,9 +1,9 @@
 ![Berry: Drop down menu in Swift](http://7xie11.com1.z0.glb.clouddn.com/Group.png)
 
 [![CocoaPods Compatible](https://img.shields.io/badge/pod-v1.2.0-blue.svg)](https://img.shields.io/badge/pod-v1.2.0-blue.svg)
-[![License](https://raw.githubusercontent.com/ShiWeiCN/Berry/master/LICENSE)](https://img.shields.io/badge/license-MIT-000000.svg)
-[![Platform](https://img.shields.io/badge/platform-ios 8.0+-lightgrey.svg)](https://img.shields.io/badge/platform-ios 8.0+-lightgrey.svg)
-[![Xcode](https://img.shields.io/badge/Xcode 8-Swift 3.1-red.svg)](https://img.shields.io/badge/Xcode 8-Swift 3.1-red.svg)
+[![License](https://img.shields.io/badge/license-MIT-000000.svg)](https://raw.githubusercontent.com/ShiWeiCN/Berry/master/LICENSE)
+[![Platform](https://img.shields.io/badge/platform-ios 8.0+-lightgrey.svg)](https://github.com/ShiWeiCN/Goku)
+[![Xcode](https://img.shields.io/badge/Xcode 8-Swift 3.1-red.svg)](https://github.com/ShiWeiCN/Berry)
 
 
 **Berry** is an drop down menu written by Swift 3.1.
