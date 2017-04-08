@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias SelectRowsAtIndexPathClosure = ((_ index: (coloum: Int, row: Int)) -> ())
+public typealias SelectRowsAtIndexPathClosure = ((_ index: (column: Int, row: Int)) -> ())
 
 public class BerryView: UIView {
 
@@ -121,7 +121,7 @@ public class BerryView: UIView {
     }
     
     ///
-    /// This method can used to create Berry menu, but the coloums of this menu just can be only **1**
+    /// This method can used to create Berry menu, but the columns of this menu just can be only **1**
     ///
     /// - parameter navigationController: UINavigationController will changed when menu was selected
     /// - parameter containerView: 
@@ -140,8 +140,8 @@ public class BerryView: UIView {
             return
         }
         
-        guard selectedIndex.count == config.menuProperty.menuColoums else {
-            fatalError("Menu coloums did not equal to data counts")
+        guard selectedIndex.count == config.menuProperty.menuColumns else {
+            fatalError("Menu columns did not equal to data counts")
         }
         
         guard !items.isEmpty else { fatalError("Menu items is empty") }
@@ -183,7 +183,7 @@ public class BerryView: UIView {
         // Setup Navigation Menu
         menuButton = UIButton(frame: frame)
         
-        if berryConfig.menuProperty.menuColoums == 1 { // More than one coloums, tap navigation bar title view will not show menu
+        if berryConfig.menuProperty.menuColumns == 1 { // More than one columns, tap navigation bar title view will not show menu
             menuButton.addTarget(self, action: #selector(self.menuButtonTapped(_:)), for: .touchUpInside)
         }
         
@@ -338,10 +338,10 @@ public class BerryView: UIView {
     fileprivate func assembleBerryTableView(_ menuWrapperBounds: CGRect, selectedIndex: [Int]) {
         var items: [BerryMenuItem] = self.items
         
-        (0 ..< berryConfig.menuProperty.menuColoums).forEach { index in
-            let tableViewWidth: CGFloat = menuWrapperBounds.width / CGFloat(berryConfig.menuProperty.menuColoums)
+        (0 ..< berryConfig.menuProperty.menuColumns).forEach { index in
+            let tableViewWidth: CGFloat = menuWrapperBounds.width / CGFloat(berryConfig.menuProperty.menuColumns)
             
-            if self.tableViews.count == berryConfig.menuProperty.menuColoums { return }
+            if self.tableViews.count == berryConfig.menuProperty.menuColumns { return }
             
             let tableView = BerryTableView(frame: CGRect(x: tableViewWidth * CGFloat(index),
                                                          y: CGFloat.spacing,
@@ -358,10 +358,10 @@ public class BerryView: UIView {
                 
                 guard let `self` = self else { return }
                 
-                if let closure = self.didSelectedRowsAtIndexPath { closure(coloum: index, row: selectedRowIndex) }
+                if let closure = self.didSelectedRowsAtIndexPath { closure(column: index, row: selectedRowIndex) }
                 
-                // If the count of menu's coloum is one, hide menu automatically
-                if self.berryConfig.menuProperty.menuColoums == 1 {
+                // If the count of menu's column is one, hide menu automatically
+                if self.berryConfig.menuProperty.menuColumns == 1 {
                     self.menuTitleLabel.text = items[selectedRowIndex].title
                     self.hideMenu()
                 } else {
@@ -374,7 +374,7 @@ public class BerryView: UIView {
             self.tableViewContainerView.addSubview(tableView)
             self.tableViews[index] = tableView
             
-            if self.berryConfig.menuProperty.menuColoums != 1 {
+            if self.berryConfig.menuProperty.menuColumns != 1 {
                 self.storeItems[index] = items
                 items = items.isEmpty ? [] : items[selectedIndex.first ?? 0].menuSubItem
             }
@@ -382,8 +382,8 @@ public class BerryView: UIView {
     }
     
     fileprivate func reloadTableViews(_ from: Int, at: Int) {
-        if from != (berryConfig.menuProperty.menuColoums - 1) { // The last one don't need to reload
-            ((from + 1) ..< berryConfig.menuProperty.menuColoums).forEach({ (index) in
+        if from != (berryConfig.menuProperty.menuColumns - 1) { // The last one don't need to reload
+            ((from + 1) ..< berryConfig.menuProperty.menuColumns).forEach({ (index) in
                 
                 var newData: [BerryMenuItem] = self.storeItems[index - 1] ?? []
                 

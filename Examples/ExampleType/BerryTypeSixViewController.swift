@@ -50,7 +50,7 @@ class BerryTypeSixViewController: UIViewController {
     fileprivate func setupBerryMenu() {
         
         let config = BerryConfig.default()
-        config.menuProperty.menuColoums = 2
+        config.menuProperty.menuColumns = 2
         config.menuProperty.menuMaxShowingRows = 10
         config.cellProperty.hideVerticalSeparator = true
         
@@ -60,14 +60,14 @@ class BerryTypeSixViewController: UIViewController {
                               items: items,
                               config: config)
         
-        berry.didSelectedRowsAtIndexPath = { [weak self] (coloum: Int, row: Int) in
+        berry.didSelectedRowsAtIndexPath = { [weak self] (column: Int, row: Int) in
             guard let `self` = self else { return }
             
-            self.lastStageIndex[coloum] = self.selectedStageIndex[coloum]
-            self.selectedStageIndex[coloum] = row
+            self.lastStageIndex[column] = self.selectedStageIndex[column]
+            self.selectedStageIndex[column] = row
             
-            if self.lastStageIndex[coloum] != self.selectedStageIndex[coloum] {
-                print("Select coloum => \(coloum), row => \(row)")
+            if self.lastStageIndex[column] != self.selectedStageIndex[column] {
+                print("Select column => \(column), row => \(row)")
             }
         }
         
