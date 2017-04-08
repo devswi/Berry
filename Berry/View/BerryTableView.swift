@@ -34,7 +34,6 @@ public class BerryTableView: UITableView {
         separatorStyle = .none
         backgroundColor = .clear
         autoresizingMask = .flexibleWidth
-        isScrollEnabled = config.menuProperty.menuMaxShowingRows < items.count
     }
     
     required public init?(coder aDecoder: NSCoder) {
