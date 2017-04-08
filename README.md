@@ -2,8 +2,8 @@
 
 [![CocoaPods Compatible](https://img.shields.io/badge/pod-v1.2.0-blue.svg)](https://cocoapods.org/)
 [![License](https://img.shields.io/badge/license-MIT-000000.svg)](https://raw.githubusercontent.com/ShiWeiCN/Berry/master/LICENSE)
-[![Platform](https://img.shields.io/badge/platform-ios 8.0+-lightgrey.svg)](http://cocoadocs.org/docsets/Goku)
-[![Xcode](https://img.shields.io/badge/Xcode 8-Swift 3.1-red.svg)](http://cocoadocs.org/docsets/Goku)
+[![Platform](https://img.shields.io/badge/platform-ios_8.0+-lightgrey.svg)](http://cocoadocs.org/docsets/Goku)
+[![Xcode](https://img.shields.io/badge/Xcode_8-Swift_3.1-red.svg)](http://cocoadocs.org/docsets/Goku)
 
 
 **Berry** is an drop down menu written by Swift 3.1.
