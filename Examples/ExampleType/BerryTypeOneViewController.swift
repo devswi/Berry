@@ -25,7 +25,7 @@ class BerryTypeOneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupBerryMenu()
         view.backgroundColor = .white
     }
