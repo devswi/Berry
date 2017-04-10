@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'Berry'
-    s.version = '0.1.2'
+    s.version = '0.1.3'
     s.license = 'MIT'
     s.summary = '😊 Berry is an drop down menu written by Swift 3.1.'
     s.homepage = 'https://github.com/ShiWeiCN/Berry'

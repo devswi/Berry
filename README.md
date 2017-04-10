@@ -1,6 +1,6 @@
 ![Berry: Drop down menu in Swift](http://7xie11.com1.z0.glb.clouddn.com/Group.png)
 
-[![CocoaPods Compatible](https://img.shields.io/badge/pod-v1.2.0-blue.svg)](https://cocoapods.org/)
+[![CocoaPods Compatible](https://img.shields.io/badge/pod-v0.1.3-blue.svg)](https://cocoapods.org/)
 [![License](https://img.shields.io/badge/license-MIT-000000.svg)](https://raw.githubusercontent.com/ShiWeiCN/Berry/master/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ios_8.0+-lightgrey.svg)](http://cocoadocs.org/docsets/Goku)
 [![Xcode](https://img.shields.io/badge/Xcode_8-Swift_3.1-red.svg)](http://cocoadocs.org/docsets/Goku)
