@@ -89,6 +89,7 @@ public class BerryView: UIView {
         }
     }
     
+    fileprivate var containerView: UIView!
     fileprivate weak var navigationController: UINavigationController?
     fileprivate var menuButton: UIButton!
     fileprivate var menuTitleLabel: UILabel!
@@ -141,8 +142,12 @@ public class BerryView: UIView {
         }
         
         guard selectedIndex.count == config.menuProperty.menuColumns else {
-            fatalError("Menu columns did not equal to data counts")
+            #if DEBUG
+                fatalError("Menu columns did not equal to data counts")
+            #endif
         }
+        
+        self.containerView = containerView
         
         guard !items.isEmpty else { fatalError("Menu items is empty") }
         
@@ -246,7 +251,7 @@ public class BerryView: UIView {
                                        y: frame.size.height * 0.5)
         }
         
-        menuWrapper.frame.origin.y = (navigationController?.navigationBar.frame.maxY)!
+        menuWrapper.frame.origin.y = containerView.frame.origin.y == 0 ? (navigationController?.navigationBar.frame.maxY ?? 64.0) : 0.0
         tableViews.forEach { (_, tableView) in
             tableView.reloadData()
         }
@@ -298,7 +303,7 @@ public class BerryView: UIView {
         isShown = true
         menuButton.isUserInteractionEnabled = false
         
-        menuWrapper.frame.origin.y = navigationController?.navigationBar.frame.maxY ?? 64.0
+        menuWrapper.frame.origin.y = containerView.frame.origin.y == 0 ? (navigationController?.navigationBar.frame.maxY ?? 64.0) : 0.0
         
         // Rotate Arrow
         if menuArrow != nil { rotateArrowAnimation() }
