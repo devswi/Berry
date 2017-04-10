@@ -24,17 +24,17 @@ public class BerryTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         menuConfig = config
-        let coloums = menuConfig.menuProperty.menuColoums
+        let columns = menuConfig.menuProperty.menuColumns
         let cellHeight = menuConfig.cellProperty.cellHeight
         
         cellContentFrame = CGRect(x: 0,
                                   y: 0,
-                                  width: UIScreen.main.bounds.width / CGFloat(coloums),
+                                  width: UIScreen.main.bounds.width / CGFloat(columns),
                                   height: cellHeight)
         contentView.backgroundColor = menuConfig.cellProperty.cellBackgroundColor
         selectionStyle = .none
         
-        let textAlignment = isMultiColoums ? .center : menuConfig.cellProperty.cellTextLabelAlignment
+        let textAlignment = isMultiColumns ? .center : menuConfig.cellProperty.cellTextLabelAlignment
         
         textLabel?.textColor = menuConfig.cellProperty.cellTextLabelColor
         textLabel?.font = menuConfig.cellProperty.cellTextLabelFont
@@ -66,8 +66,8 @@ public class BerryTableViewCell: UITableViewCell {
         default: break
         }
         
-        // If memu has more than one coloum, icon image will be hidden
-        if BerryConstant.defaultMaxColoums == coloums {
+        // If memu has more than one columns, icon image will be hidden
+        if BerryConstant.defaultMaxColumns == columns {
             iconImageView = UIImageView(frame: iconImageViewFrame)
             iconImageView?.contentMode = .scaleAspectFill
             contentView.addSubview(iconImageView!)
@@ -83,7 +83,7 @@ public class BerryTableViewCell: UITableViewCell {
             contentView.addSubview(cellSepartorHorizontal!)
         }
         
-        if cellSepartorVertical == nil && BerryConstant.defaultMaxColoums != coloums {
+        if cellSepartorVertical == nil && BerryConstant.defaultMaxColumns != columns {
             cellSepartorVertical = BerrySeparator(frame: CGRect(x: cellContentFrame.width - CGFloat.half,
                                                                     y: 0,
                                                                     width: CGFloat.half,
@@ -102,9 +102,9 @@ public class BerryTableViewCell: UITableViewCell {
         contentView.frame = bounds
     }
     
-    fileprivate var isMultiColoums: Bool {
+    fileprivate var isMultiColumns: Bool {
         get {
-            return menuConfig.menuProperty.menuColoums != BerryConstant.defaultMaxColoums
+            return menuConfig.menuProperty.menuColumns != BerryConstant.defaultMaxColumns
         }
     }
 

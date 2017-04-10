@@ -19,8 +19,8 @@ public struct BerryMenuProperty {
     /// The max number of rows showing on the menu, default is **5**
     public var menuMaxShowingRows: Int
     
-    /// The number of coloum on the menu, default is **1**
-    public var menuColoums: Int
+    /// The number of column on the menu, default is **1**
+    public var menuColumns: Int
     
     /// The menu table view background color
     public var menuBackgroundColor: UIColor
@@ -37,7 +37,7 @@ public struct BerryMenuProperty {
         return BerryMenuProperty(menuTitleColor: UIColor.darkText,
                                  menuTitleFont: font,
                                  menuMaxShowingRows: BerryConstant.defaultMaxShowingRows,
-                                 menuColoums: BerryConstant.defaultMaxColoums,
+                                 menuColumns: BerryConstant.defaultMaxColumns,
                                  menuBackgroundColor: UIColor(red: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1.0))
     }
 }

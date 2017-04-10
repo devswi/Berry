@@ -100,15 +100,15 @@ extension BerryTableView: UITableViewDelegate {
             tableCell.textLabel?.textColor = isSelectedIndex(indexPath.row) ? berryConfig.cellProperty.cellSelectedTextLabelColor : berryConfig.cellProperty.cellTextLabelColor
         }
         
-        let coloums = berryConfig.menuProperty.menuColoums
+        let columns = berryConfig.menuProperty.menuColumns
         
-        if indexPath.row == (berry.count - 1) && coloums == BerryConstant.defaultMaxColoums {
+        if indexPath.row == (berry.count - 1) && columns == BerryConstant.defaultMaxColumns {
             tableCell.cellSepartorHorizontal?.separatorColor = .clear
         } else {
             tableCell.cellSepartorHorizontal?.separatorColor = berryConfig.cellProperty.cellSeparatorColor
         }
         
-        if coloums > BerryConstant.defaultMaxColoums { // Show vertical separator
+        if columns > BerryConstant.defaultMaxColumns { // Show vertical separator
             tableCell.cellSepartorVertical?.separatorColor = berryConfig.cellProperty.cellSeparatorColor
             if berryConfig.cellProperty.hideVerticalSeparator {
                 tableCell.cellSepartorVertical?.isHidden = isSelectedIndex(indexPath.row)

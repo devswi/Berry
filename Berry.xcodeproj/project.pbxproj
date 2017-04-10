@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		892377FB1E964DE00081A65B /* BerryConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892377FA1E964DE00081A65B /* BerryConfig.swift */; };
-		892377FE1E9656470081A65B /* BerryMenuProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892377FD1E9656470081A65B /* BerryMenuProperty.swift */; };
 		892378081E9659370081A65B /* BerryCellProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892378071E9659370081A65B /* BerryCellProperty.swift */; };
 		8923780A1E9659660081A65B /* BerryArrowProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892378091E9659660081A65B /* BerryArrowProperty.swift */; };
 		8923780C1E9659870081A65B /* BerryMaskProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8923780B1E9659870081A65B /* BerryMaskProperty.swift */; };
@@ -21,11 +19,11 @@
 		C41462C61E96783900618910 /* BerrySeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41462C51E96783900618910 /* BerrySeparator.swift */; };
 		C41462C81E96785800618910 /* BerryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41462C71E96785800618910 /* BerryTableViewCell.swift */; };
 		C41462CA1E96862D00618910 /* BerryConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41462C91E96862D00618910 /* BerryConstant.swift */; };
+		C43671C21E99394800C3A501 /* BerryMenuProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43671C11E99394800C3A501 /* BerryMenuProperty.swift */; };
+		C43671C41E99398500C3A501 /* BerryConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43671C31E99398500C3A501 /* BerryConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		892377FA1E964DE00081A65B /* BerryConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BerryConfig.swift; path = Source/BerryConfig.swift; sourceTree = SOURCE_ROOT; };
-		892377FD1E9656470081A65B /* BerryMenuProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BerryMenuProperty.swift; path = Source/BerryMenuProperty.swift; sourceTree = SOURCE_ROOT; };
 		892378071E9659370081A65B /* BerryCellProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryCellProperty.swift; sourceTree = "<group>"; };
 		892378091E9659660081A65B /* BerryArrowProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryArrowProperty.swift; sourceTree = "<group>"; };
 		8923780B1E9659870081A65B /* BerryMaskProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryMaskProperty.swift; sourceTree = "<group>"; };
@@ -40,6 +38,8 @@
 		C41462C51E96783900618910 /* BerrySeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerrySeparator.swift; sourceTree = "<group>"; };
 		C41462C71E96785800618910 /* BerryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryTableViewCell.swift; sourceTree = "<group>"; };
 		C41462C91E96862D00618910 /* BerryConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryConstant.swift; sourceTree = "<group>"; };
+		C43671C11E99394800C3A501 /* BerryMenuProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryMenuProperty.swift; sourceTree = "<group>"; };
+		C43671C31E99398500C3A501 /* BerryConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 		892377F91E964DD20081A65B /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				892377FA1E964DE00081A65B /* BerryConfig.swift */,
+				C43671C31E99398500C3A501 /* BerryConfig.swift */,
 				C41462C91E96862D00618910 /* BerryConstant.swift */,
 				892378121E972FC20081A65B /* BerryMenuItem.swift */,
 			);
@@ -66,7 +66,7 @@
 		892377FC1E9656240081A65B /* Property */ = {
 			isa = PBXGroup;
 			children = (
-				892377FD1E9656470081A65B /* BerryMenuProperty.swift */,
+				C43671C11E99394800C3A501 /* BerryMenuProperty.swift */,
 				892378071E9659370081A65B /* BerryCellProperty.swift */,
 				892378091E9659660081A65B /* BerryArrowProperty.swift */,
 				8923780B1E9659870081A65B /* BerryMaskProperty.swift */,
@@ -207,11 +207,11 @@
 				C41462C21E9677DE00618910 /* BerryView.swift in Sources */,
 				8923780C1E9659870081A65B /* BerryMaskProperty.swift in Sources */,
 				892378111E972CB00081A65B /* BerryCGFloatExtension.swift in Sources */,
-				892377FE1E9656470081A65B /* BerryMenuProperty.swift in Sources */,
-				892377FB1E964DE00081A65B /* BerryConfig.swift in Sources */,
 				8923780E1E9659A80081A65B /* BerryOtherProperty.swift in Sources */,
 				C41462C41E96780600618910 /* BerryTableView.swift in Sources */,
 				8923780A1E9659660081A65B /* BerryArrowProperty.swift in Sources */,
+				C43671C41E99398500C3A501 /* BerryConfig.swift in Sources */,
+				C43671C21E99394800C3A501 /* BerryMenuProperty.swift in Sources */,
 				C41462C81E96785800618910 /* BerryTableViewCell.swift in Sources */,
 				892378131E972FC20081A65B /* BerryMenuItem.swift in Sources */,
 				C41462CA1E96862D00618910 /* BerryConstant.swift in Sources */,
