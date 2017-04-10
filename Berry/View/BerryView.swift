@@ -142,9 +142,7 @@ public class BerryView: UIView {
         }
         
         guard selectedIndex.count == config.menuProperty.menuColumns else {
-            #if DEBUG
-                fatalError("Menu columns did not equal to data counts")
-            #endif
+            fatalError("Menu columns did not equal to data counts")
         }
         
         self.containerView = containerView
