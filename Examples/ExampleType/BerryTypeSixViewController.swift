@@ -24,7 +24,7 @@ class BerryTypeSixViewController: UIViewController {
         items = assembleSubItem()
         
         let button = UIButton(type: .custom)
-        button.setTitle("筛选", for: .normal)
+        button.setTitle("Filter", for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         button.setTitleColor(.darkText, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)

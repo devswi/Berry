@@ -268,7 +268,7 @@ public class BerryView: UIView {
     }
     
     @objc fileprivate func menuButtonTapped(_ sender: UIButton) {
-        isShown == true ? hideMenu() : showMenu()
+        isShown && berryConfig.menuProperty.tapBackgroundHideMenu ? hideMenu() : showMenu()
     }
     
     @objc fileprivate func hideMenu() {

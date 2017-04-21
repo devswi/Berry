@@ -25,6 +25,8 @@ public struct BerryMenuProperty {
     /// The menu table view background color
     public var menuBackgroundColor: UIColor
     
+    public var tapBackgroundHideMenu: Bool
+    
     static func `default`() -> BerryMenuProperty {
         
         var font: UIFont
@@ -38,6 +40,7 @@ public struct BerryMenuProperty {
                                  menuTitleFont: font,
                                  menuMaxShowingRows: BerryConstant.defaultMaxShowingRows,
                                  menuColumns: BerryConstant.defaultMaxColumns,
-                                 menuBackgroundColor: UIColor(red: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1.0))
+                                 menuBackgroundColor: UIColor(red: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1.0),
+                                 tapBackgroundHideMenu: true)
     }
 }
