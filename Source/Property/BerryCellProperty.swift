@@ -14,6 +14,12 @@ public enum BerryCellStyle {
     case separator
 }
 
+public enum BerryVerticalSeparator {
+    case alwaysHide
+    case selected
+    case alwaysShown
+}
+
 public struct BerryCellProperty {
     
     /// Menu cell style default style is none of image on cell
@@ -44,7 +50,11 @@ public struct BerryCellProperty {
     /// Text alignment default is **CENTER**
     public var cellTextLabelAlignment: NSTextAlignment
     
-    public var hideVerticalSeparator: Bool
+    /// Hide or show vertical separtor
+    public var verticalSeparator: BerryVerticalSeparator
+    
+    /// Show or hide table view cell separator
+    public var hideHorizontalSeparator: Bool
     
     static func `default`() -> BerryCellProperty {
         
@@ -57,6 +67,8 @@ public struct BerryCellProperty {
                                  cellSelectedBackgroundColor: nil,
                                  cellSelectedTextLabelColor: UIColor(red: 81/255.0, green: 166/255.0, blue: 1.0, alpha: 1.0),
                                  cellTextLabelAlignment: NSTextAlignment.center,
-                                 hideVerticalSeparator: true)
+                                 verticalSeparator: .alwaysShown,
+                                 hideHorizontalSeparator: false
+        )
     }
 }

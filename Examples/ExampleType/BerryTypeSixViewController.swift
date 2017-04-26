@@ -52,7 +52,7 @@ class BerryTypeSixViewController: UIViewController {
         let config = BerryConfig.default()
         config.menuProperty.menuColumns = 2
         config.menuProperty.menuMaxShowingRows = 10
-        config.cellProperty.hideVerticalSeparator = true
+        config.cellProperty.verticalSeparator = .selected
         
         let berry = BerryView(navigationController: navigationController,
                               containerView: view,

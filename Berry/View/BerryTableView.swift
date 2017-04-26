@@ -110,10 +110,12 @@ extension BerryTableView: UITableViewDelegate {
         
         if columns > BerryConstant.defaultMaxColumns { // Show vertical separator
             tableCell.cellSepartorVertical?.separatorColor = berryConfig.cellProperty.cellSeparatorColor
-            if berryConfig.cellProperty.hideVerticalSeparator {
+            tableCell.cellSepartorVertical?.isHidden = berryConfig.cellProperty.verticalSeparator == .alwaysHide
+            if case .selected = berryConfig.cellProperty.verticalSeparator {
                 tableCell.cellSepartorVertical?.isHidden = isSelectedIndex(indexPath.row)
             }
         }
+        tableCell.cellSepartorHorizontal?.isHidden = berryConfig.cellProperty.hideHorizontalSeparator
         
         if let highlightIcon = berry[indexPath.row].iconHighlightImage {
             tableCell.iconImageView?.image = isSelectedIndex(indexPath.row) ? highlightIcon : berry[indexPath.row].iconImage
