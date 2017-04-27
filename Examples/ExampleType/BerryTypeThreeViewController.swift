@@ -54,6 +54,10 @@ class BerryTypeThreeViewController: UIViewController {
         config.menuProperty.menuMaxShowingRows = 7
         config.cellProperty.verticalSeparator = .alwaysHide
         config.cellProperty.hideHorizontalSeparator = true
+        config.menuProperty.menuLocation = .bottom(needTool: BerryToolBarProperty(done: "Done",
+                                                                                  cancel: "Cancel",
+                                                                                  doneActionHandler: { _ in print("Done tapped") },
+                                                                                  cancelActionHandler: { _ in print("Cancel tapped") }))
         
         let berry = BerryView(navigationController: navigationController,
                               containerView: view,

@@ -8,6 +8,11 @@
 
 import UIKit
 
+public enum Location {
+    case top
+    case bottom(needTool: BerryToolBarProperty?)
+}
+
 public struct BerryMenuProperty {
     
     /// The color of menu title
@@ -25,7 +30,11 @@ public struct BerryMenuProperty {
     /// The menu table view background color
     public var menuBackgroundColor: UIColor
     
+    ///
     public var tapBackgroundHideMenu: Bool
+    
+    ///
+    public var menuLocation: Location
     
     static func `default`() -> BerryMenuProperty {
         
@@ -41,6 +50,7 @@ public struct BerryMenuProperty {
                                  menuMaxShowingRows: BerryConstant.defaultMaxShowingRows,
                                  menuColumns: BerryConstant.defaultMaxColumns,
                                  menuBackgroundColor: UIColor(red: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1.0),
-                                 tapBackgroundHideMenu: true)
+                                 tapBackgroundHideMenu: true,
+                                 menuLocation: .top)
     }
 }

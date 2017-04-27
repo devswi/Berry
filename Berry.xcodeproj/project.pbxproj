@@ -20,6 +20,8 @@
 		890C49451EB0A87400344569 /* BerryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C49381EB0A87400344569 /* BerryTableView.swift */; };
 		890C49461EB0A87400344569 /* BerryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C49391EB0A87400344569 /* BerryTableViewCell.swift */; };
 		890C49471EB0A87400344569 /* BerryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C493A1EB0A87400344569 /* BerryView.swift */; };
+		890C49601EB19F3A00344569 /* BerryToolBarProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C495F1EB19F3A00344569 /* BerryToolBarProperty.swift */; };
+		890C49621EB1C0A100344569 /* BerryStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C49611EB1C0A100344569 /* BerryStringExtension.swift */; };
 		898935BD1E96440000CC623C /* Berry.h in Headers */ = {isa = PBXBuildFile; fileRef = 898935BB1E96440000CC623C /* Berry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		890C49381EB0A87400344569 /* BerryTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryTableView.swift; sourceTree = "<group>"; };
 		890C49391EB0A87400344569 /* BerryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryTableViewCell.swift; sourceTree = "<group>"; };
 		890C493A1EB0A87400344569 /* BerryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryView.swift; sourceTree = "<group>"; };
+		890C495F1EB19F3A00344569 /* BerryToolBarProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryToolBarProperty.swift; sourceTree = "<group>"; };
+		890C49611EB1C0A100344569 /* BerryStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BerryStringExtension.swift; sourceTree = "<group>"; };
 		898935B81E96440000CC623C /* Berry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Berry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898935BB1E96440000CC623C /* Berry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Berry.h; sourceTree = "<group>"; };
 		898935BC1E96440000CC623C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				890C492F1EB0A87400344569 /* BerryCGFloatExtension.swift */,
+				890C49611EB1C0A100344569 /* BerryStringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -79,6 +84,7 @@
 				890C49331EB0A87400344569 /* BerryMaskProperty.swift */,
 				890C49341EB0A87400344569 /* BerryMenuProperty.swift */,
 				890C49351EB0A87400344569 /* BerryOtherProperty.swift */,
+				890C495F1EB19F3A00344569 /* BerryToolBarProperty.swift */,
 			);
 			path = Property;
 			sourceTree = "<group>";
@@ -206,6 +212,8 @@
 				890C49421EB0A87400344569 /* BerryMenuProperty.swift in Sources */,
 				890C493D1EB0A87400344569 /* BerryMenuItem.swift in Sources */,
 				890C493C1EB0A87400344569 /* BerryConstant.swift in Sources */,
+				890C49621EB1C0A100344569 /* BerryStringExtension.swift in Sources */,
+				890C49601EB19F3A00344569 /* BerryToolBarProperty.swift in Sources */,
 				890C49451EB0A87400344569 /* BerryTableView.swift in Sources */,
 				890C493B1EB0A87400344569 /* BerryConfig.swift in Sources */,
 				890C49471EB0A87400344569 /* BerryView.swift in Sources */,
