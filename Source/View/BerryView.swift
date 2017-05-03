@@ -220,11 +220,22 @@ public class BerryView: UIView {
         backgroundView.addGestureRecognizer(backgroundTapRecognizer)
         
         // Setup TableView Container View
+        var y: CGFloat = 0.0
+        if case Location.top = berryConfig.menuProperty.menuLocation {
+            y = -realityHeight()
+        } else {
+            y = UIScreen.main.bounds.height + self.toolBarHeight()
+        }
         tableViewContainerView = UIView(frame: CGRect(x: menuWrapperBounds.origin.x,
-                                                      y: -realityHeight(),
+                                                      y: y,
                                                       width: menuWrapperBounds.width,
                                                       height: realityHeight()))
         tableViewContainerView.backgroundColor = berryConfig.cellProperty.cellBackgroundColor
+        
+        if case Location.bottom(needTool: let toolBar) = berryConfig.menuProperty.menuLocation,
+            let property = toolBar {
+            setupToolBar(property)
+        }
         
         assembleBerryTableView(menuWrapperBounds, selectedIndex: selectedIndex)
         
@@ -267,6 +278,48 @@ public class BerryView: UIView {
         menuArrowTintColor = menuTitleColor
     }
     
+    private func setupToolBar(_ property: BerryToolBarProperty) {
+        // Separator
+        let separator = UIView(frame: CGRect(x: 0, y: 43.5, width: UIScreen.main.bounds.width, height: 0.5))
+        separator.backgroundColor = UIColor(red: 203 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1.0)
+        tableViewContainerView.addSubview(separator)
+        
+        let font = UIFont.systemFont(ofSize: 14)
+        let doneTextWidth = property.done.width(withConstrainedHeight: 43, font: font) + 30
+        
+        let doneButton = UIButton(type: .custom)
+        doneButton.frame = CGRect(x: UIScreen.main.bounds.width - 63, y: 0, width: doneTextWidth, height: 43)
+        doneButton.titleLabel?.font = font
+        doneButton.setTitleColor(UIColor.darkText, for: .normal)
+        doneButton.setTitle(property.done, for: .normal)
+        tableViewContainerView.addSubview(doneButton)
+        
+        doneButton.addTarget(self, action: #selector(BerryView.doneActionHandler), for: .touchUpInside)
+        
+        let cancelTextWidth = property.cancel.width(withConstrainedHeight: 43, font: font) + 30
+        
+        let cancelButton = UIButton(type: .custom)
+        cancelButton.frame = CGRect(x: 0, y: 0, width: cancelTextWidth, height: 43)
+        cancelButton.titleLabel?.font = font
+        cancelButton.setTitleColor(UIColor.darkText, for: .normal)
+        cancelButton.setTitle(property.cancel, for: .normal)
+        tableViewContainerView.addSubview(cancelButton)
+        
+        cancelButton.addTarget(self, action: #selector(BerryView.cancelActionHandler), for: .touchUpInside)
+    }
+    
+    @objc private func doneActionHandler() {
+        if case Location.bottom(needTool: let toolBar) = berryConfig.menuProperty.menuLocation, let property = toolBar {
+            property.doneActionHandler()
+        }
+    }
+    
+    @objc private func cancelActionHandler() {
+        if case Location.bottom(needTool: let toolBar) = berryConfig.menuProperty.menuLocation, let property = toolBar {
+            property.cancelActionHandler()
+        }
+    }
+    
     @objc fileprivate func menuButtonTapped(_ sender: UIButton) {
         isShown && berryConfig.menuProperty.tapBackgroundHideMenu ? hideMenu() : showMenu()
     }
@@ -281,12 +334,19 @@ public class BerryView: UIView {
         // Wapper Animation
         backgroundView.alpha = berryConfig.maskProperty.maskBackgroundOpacity
         
+        var y: CGFloat = 0.0
+        if case Location.top = berryConfig.menuProperty.menuLocation {
+            y = -realityHeight()
+        } else {
+            y = UIScreen.main.bounds.height + self.toolBarHeight()
+        }
+        
         UIView.animate(withDuration: berryConfig.otherProperty.duration,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.5,
                        options: UIViewAnimationOptions(), animations: {
-                        self.tableViewContainerView.frame.origin.y = -self.realityHeight()
+                        self.tableViewContainerView.frame.origin.y = y
                         self.backgroundView.alpha = 0
                         self.tableViews.forEach({ (_, tableView) in
                             tableView.alpha = 0
@@ -312,12 +372,19 @@ public class BerryView: UIView {
         
         menuWrapper.superview?.bringSubview(toFront: menuWrapper)
         
+        var y: CGFloat = 0.0
+        if case Location.top = berryConfig.menuProperty.menuLocation {
+            y = -CGFloat.spacing
+        } else {
+            y = (UIScreen.main.bounds.height - realityHeight() - toolBarHeight())
+        }
+        
         UIView.animate(withDuration: berryConfig.otherProperty.duration,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.5,
                        options: UIViewAnimationOptions(), animations: {
-                        self.tableViewContainerView.frame.origin.y = -CGFloat.spacing
+                        self.tableViewContainerView.frame.origin.y = y
                         self.backgroundView.alpha = self.berryConfig.maskProperty.maskBackgroundOpacity
                         self.tableViews.forEach({ (_, tableView) in
                             tableView.alpha = 1
@@ -335,7 +402,7 @@ public class BerryView: UIView {
     }
     
     fileprivate func realityHeight() -> CGFloat {
-        return CGFloat(berryConfig.menuProperty.menuMaxShowingRows) * berryConfig.cellProperty.cellHeight + CGFloat.spacing
+        return CGFloat(berryConfig.menuProperty.menuMaxShowingRows) * berryConfig.cellProperty.cellHeight + CGFloat.spacing + toolBarHeight()
     }
     
     fileprivate func assembleBerryTableView(_ menuWrapperBounds: CGRect, selectedIndex: [Int]) {
@@ -346,8 +413,12 @@ public class BerryView: UIView {
             
             if self.tableViews.count == berryConfig.menuProperty.menuColumns { return }
             
+            var y: CGFloat = toolBarHeight()
+            if case Location.top = berryConfig.menuProperty.menuLocation {
+                y = CGFloat.spacing
+            }
             let tableView = BerryTableView(frame: CGRect(x: tableViewWidth * CGFloat(index),
-                                                         y: CGFloat.spacing,
+                                                         y: y,
                                                          width: tableViewWidth,
                                                          height: realityHeight() - CGFloat.spacing),
                                            items: items,
@@ -400,6 +471,14 @@ public class BerryView: UIView {
                     tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
                 }
             })
+        }
+    }
+    
+    private func toolBarHeight() -> CGFloat {
+        switch berryConfig.menuProperty.menuLocation {
+        case .top: return 0.0
+        case .bottom(needTool: let toolBar):
+            return toolBar == nil ? 0.0 : 44.0
         }
     }
 
