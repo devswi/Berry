@@ -376,7 +376,7 @@ public class BerryView: UIView {
         if case Location.top = berryConfig.menuProperty.menuLocation {
             y = -CGFloat.spacing
         } else {
-            y = (UIScreen.main.bounds.height - realityHeight())
+            y = (UIScreen.main.bounds.height - realityHeight() - toolBarHeight())
         }
         
         UIView.animate(withDuration: berryConfig.otherProperty.duration,
@@ -420,7 +420,7 @@ public class BerryView: UIView {
             let tableView = BerryTableView(frame: CGRect(x: tableViewWidth * CGFloat(index),
                                                          y: y,
                                                          width: tableViewWidth,
-                                                         height: realityHeight() - CGFloat.spacing),
+                                                         height: realityHeight() - CGFloat.spacing - toolBarHeight()),
                                            items: items,
                                            selectedIndex: selectedIndex[index],
                                            config: berryConfig)
