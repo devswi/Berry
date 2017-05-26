@@ -376,7 +376,7 @@ public class BerryView: UIView {
         if case Location.top = berryConfig.menuProperty.menuLocation {
             y = -CGFloat.spacing
         } else {
-            y = (UIScreen.main.bounds.height - realityHeight() - toolBarHeight())
+            y = (UIScreen.main.bounds.height - realityHeight())
         }
         
         UIView.animate(withDuration: berryConfig.otherProperty.duration,
