@@ -1,0 +1,16 @@
+PODS:
+  - Berry (1.0.0)
+
+DEPENDENCIES:
+  - Berry (from `../`)
+
+EXTERNAL SOURCES:
+  Berry:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Berry: 8825947e36f79bbc3be6eb64b325105942e30203
+
+PODFILE CHECKSUM: c8e640d2930df847a931fef1d3a490a83457af56
+
+COCOAPODS: 1.5.3

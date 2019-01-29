@@ -1,0 +1,6 @@
+framework module Berry {
+  umbrella header "Berry-umbrella.h"
+
+  export *
+  module * { export * }
+}
