@@ -13,12 +13,6 @@ Pod::Spec.new do |s|
     s.default_subspec = 'Core'
     
     s.subspec 'Core' do |core|
-        core.source_files = 'Berry/Core/Classes/**/*.swift'
-    end
-    
-    s.subspec 'Configuration' do |config|
-        config.source_files = 'Berry/Configuration/Classes/**/*.swift'
-        
-        config.dependency 'Berry/Core'
+        core.source_files = ['Berry/Core/Classes/**/*.swift', 'Berry/Configuration/Classes/**/*.swift']
     end
 end

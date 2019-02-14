@@ -20,20 +20,15 @@
       "Foundation"
     ]
   },
+  "swift_version": "4.2",
   "default_subspecs": "Core",
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "Berry/Core/Classes/**/*.swift"
-    },
-    {
-      "name": "Configuration",
-      "source_files": "Berry/Configuration/Classes/**/*.swift",
-      "dependencies": {
-        "Berry/Core": [
-
-        ]
-      }
+      "source_files": [
+        "Berry/Core/Classes/**/*.swift",
+        "Berry/Configuration/Classes/**/*.swift"
+      ]
     }
   ]
 }

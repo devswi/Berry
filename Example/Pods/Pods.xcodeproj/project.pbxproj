@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0180C1E0C2BE24ECAFBBCF49AECD2A22 /* Berry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7330E21BBEB10B53A8BD6148C032BDCE /* Berry-dummy.m */; };
-		07F5C9EDAD25F685FD84D0FDA985FC3C /* BerryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5581226F02781749F99A4704BB95AA6 /* BerryConfiguration.swift */; };
+		10B50929EB3A8AABAAD19DB8E42E7DC3 /* BerryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EB55B856E1597BBC9A22B9F6D65A92 /* BerryConfiguration.swift */; };
 		180F95F99758952E6CF3490B356BF962 /* Pods-Berry_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0455FDBB53411A2833E18CDD5F017C78 /* Pods-Berry_Example-dummy.m */; };
-		1AECFE643078DBAC44855D6D864B82E6 /* BerryDropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685D76AB938F405962F94976130990AD /* BerryDropDownView.swift */; };
-		211D9C4FF37194CCFD9BEFBA4AD25DEA /* BerryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF841CA9AADA3FEFBFAF2ACD8DA8D2E /* BerryTableView.swift */; };
 		2A5AD3D5429AE5ECD581E33C310C4A56 /* Pods-Berry_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 248DBC404703C8C646C3FA23D41506CB /* Pods-Berry_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		339979CAE72D6EAC242533CB5C0F03EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
 		343D2FFCE2F3463501C5917D96D919B2 /* Pods-Berry_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD3F80119F93259DDE0090E9059CCAC2 /* Pods-Berry_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		465C24F249AC31E9DE94C5CF6A5052A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */; };
-		69CC551596513A472556190A0EB5DF97 /* BerryDefaultConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70139F769D150DCC5346AB817C4B20 /* BerryDefaultConfiguration.swift */; };
+		7C202EE1BBE55244612C9A2B142C5686 /* BerryItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BDE9F1D23ABAAA35C2C095492888A3 /* BerryItemForm.swift */; };
 		7D26FD66690CDF1185BA2FFB5D87037D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
+		8A1C53EE433DC98C7C32B6686154D1D3 /* Berry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1978756F532B5C4ACB45485ED9766B4E /* Berry-dummy.m */; };
+		8B25E9917489C7D82358AB0DF19E3A2C /* BerryDropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9538FC68E912095BD4EAD7138353A /* BerryDropDownView.swift */; };
 		90F55D3C6654AB47185F431AFFFC3B6E /* Pods-Berry_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C7850B0C6D12118745A7D3EF50EAFE01 /* Pods-Berry_Tests-dummy.m */; };
-		9F0106C26535113CCAE634FD534FFB39 /* BerryItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872011FDC2241D00A50655E35B5843F /* BerryItemForm.swift */; };
+		A9B33162BBE7FDB9640F45B3C9B1C963 /* BerryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD442ACC934E36A2A0F6A97E6C66D4 /* BerryTableView.swift */; };
+		B91622ECB699940BDB486E2F92A2C243 /* BerryDefaultConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42657B1E8AD0980C18EA9FFFE83BE0E4 /* BerryDefaultConfiguration.swift */; };
 		DD5B38D34D6CA6E4E1F8092C788CAEFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */; };
-		F933F7DFCFE6FC95BFC936269234E953 /* Berry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DBAAD4D8662C89E83DEB4A0177145507 /* Berry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F933F7DFCFE6FC95BFC936269234E953 /* Berry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AEAE6C6DD6A9CE8C632DA11AC0122E79 /* Berry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,39 +43,39 @@
 
 /* Begin PBXFileReference section */
 		0455FDBB53411A2833E18CDD5F017C78 /* Pods-Berry_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Berry_Example-dummy.m"; sourceTree = "<group>"; };
+		1978756F532B5C4ACB45485ED9766B4E /* Berry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Berry-dummy.m"; sourceTree = "<group>"; };
 		248DBC404703C8C646C3FA23D41506CB /* Pods-Berry_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Berry_Tests-umbrella.h"; sourceTree = "<group>"; };
+		2DA9538FC68E912095BD4EAD7138353A /* BerryDropDownView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BerryDropDownView.swift; sourceTree = "<group>"; };
 		344DB1DA052D7BF46401CAFEFFCD6FF9 /* Pods-Berry_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Berry_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		36CDC98DF40B847CDF7A4F1092C5965A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		36CE2C907BA03DCB13F51F58B5CCF0E8 /* Pods-Berry_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Berry_Example.modulemap"; sourceTree = "<group>"; };
 		3A2253CFCE0113A94A91C863177B6D53 /* Pods-Berry_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Berry_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3E6D080C09A0FE01291A66358184F5FE /* Berry.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Berry.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		40CB39E715FBCDAA142E6513E126200A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4D1584B2C2BF0A4470A4BC57D2B2886F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		42657B1E8AD0980C18EA9FFFE83BE0E4 /* BerryDefaultConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BerryDefaultConfiguration.swift; sourceTree = "<group>"; };
 		4DE5298BBA7EA129F7FF2AC89A605AE8 /* Pods-Berry_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Berry_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		514B690CCAFE62C2CE9EE1FC4B8DA885 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		544C37F67FA8DD4D33E4C20E942E6B04 /* Berry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Berry.modulemap; sourceTree = "<group>"; };
+		56F3636749972EF9C548323BEFDFD50D /* Berry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Berry-Info.plist"; sourceTree = "<group>"; };
 		582EAC7A4EC9BEA9E0BE7EEAB9F46BCA /* Pods_Berry_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Berry_Tests.framework; path = "Pods-Berry_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C70139F769D150DCC5346AB817C4B20 /* BerryDefaultConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BerryDefaultConfiguration.swift; path = Berry/Configuration/Classes/BerryDefaultConfiguration.swift; sourceTree = "<group>"; };
 		66BB23C8B10CBB845156F3A96546D90B /* Pods-Berry_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Berry_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		685D76AB938F405962F94976130990AD /* BerryDropDownView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BerryDropDownView.swift; sourceTree = "<group>"; };
 		69EF1867117B1A90E7705C04EA3CA828 /* Pods-Berry_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Berry_Example-Info.plist"; sourceTree = "<group>"; };
-		7330E21BBEB10B53A8BD6148C032BDCE /* Berry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Berry-dummy.m"; sourceTree = "<group>"; };
-		7A7AB2FD41B16C60289B7F3E14F633E7 /* Berry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Berry-Info.plist"; sourceTree = "<group>"; };
-		95AC79677A620EAA466215DB258CCD73 /* Berry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Berry.xcconfig; sourceTree = "<group>"; };
+		6B9E730066F6797CE143A38D7F05382D /* Berry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Berry.xcconfig; sourceTree = "<group>"; };
+		727A974C8CEF0B238BFAADDB1AA14FF5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		79EB55B856E1597BBC9A22B9F6D65A92 /* BerryConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BerryConfiguration.swift; sourceTree = "<group>"; };
+		8FDD442ACC934E36A2A0F6A97E6C66D4 /* BerryTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BerryTableView.swift; sourceTree = "<group>"; };
 		96AC1E6CFD1ECB00F8934702A4F2EDFD /* Pods_Berry_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Berry_Example.framework; path = "Pods-Berry_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AD3F80119F93259DDE0090E9059CCAC2 /* Pods-Berry_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Berry_Example-umbrella.h"; sourceTree = "<group>"; };
 		AD6FD1BC8DC2B0A4609FD2C8211D7051 /* Pods-Berry_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Berry_Example-frameworks.sh"; sourceTree = "<group>"; };
-		AFF841CA9AADA3FEFBFAF2ACD8DA8D2E /* BerryTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BerryTableView.swift; sourceTree = "<group>"; };
-		B58D5926D04D8323BB7F5123403B609B /* Berry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Berry-prefix.pch"; sourceTree = "<group>"; };
+		AEAE6C6DD6A9CE8C632DA11AC0122E79 /* Berry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Berry-umbrella.h"; sourceTree = "<group>"; };
 		B7D5BAF06E6CE9F0E11F6EB2E18E73FB /* Berry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Berry.framework; path = Berry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2898D4D787CCF5472CBD901F19C859 /* Pods-Berry_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Berry_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BD8D8C6885B1C0ADF660CB9E3EB7C316 /* Pods-Berry_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Berry_Tests.modulemap"; sourceTree = "<group>"; };
+		C2BDE9F1D23ABAAA35C2C095492888A3 /* BerryItemForm.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BerryItemForm.swift; sourceTree = "<group>"; };
 		C2BEEFF7CC535FBB69BD226CED26375C /* Pods-Berry_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Berry_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7850B0C6D12118745A7D3EF50EAFE01 /* Pods-Berry_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Berry_Tests-dummy.m"; sourceTree = "<group>"; };
-		D5581226F02781749F99A4704BB95AA6 /* BerryConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BerryConfiguration.swift; sourceTree = "<group>"; };
+		C92AA9BA9F33BC020E6283945B3F0A5D /* Berry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Berry-prefix.pch"; sourceTree = "<group>"; };
+		D24F0275B699ECEF26DE1BBB804D784A /* Berry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Berry.modulemap; sourceTree = "<group>"; };
 		D97680BE7066B67E04D93A44C9276D78 /* Pods-Berry_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Berry_Example.release.xcconfig"; sourceTree = "<group>"; };
-		DBAAD4D8662C89E83DEB4A0177145507 /* Berry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Berry-umbrella.h"; sourceTree = "<group>"; };
-		E872011FDC2241D00A50655E35B5843F /* BerryItemForm.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BerryItemForm.swift; sourceTree = "<group>"; };
+		E4E7E0E4343597D04CE36C23FF0C90A8 /* Berry.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Berry.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		EF6E75A0654D15E475E7AB38344AA0DC /* Pods-Berry_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Berry_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		EF99F5296676DEE7492267E9AC01F525 /* Pods-Berry_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Berry_Tests-Info.plist"; sourceTree = "<group>"; };
@@ -110,30 +110,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		039102A94C968189A3BF6E2A2301C75A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				544C37F67FA8DD4D33E4C20E942E6B04 /* Berry.modulemap */,
-				95AC79677A620EAA466215DB258CCD73 /* Berry.xcconfig */,
-				7330E21BBEB10B53A8BD6148C032BDCE /* Berry-dummy.m */,
-				7A7AB2FD41B16C60289B7F3E14F633E7 /* Berry-Info.plist */,
-				B58D5926D04D8323BB7F5123403B609B /* Berry-prefix.pch */,
-				DBAAD4D8662C89E83DEB4A0177145507 /* Berry-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Berry";
-			sourceTree = "<group>";
-		};
-		04C90CD1A5CA26C824530416BF8E4467 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				685D76AB938F405962F94976130990AD /* BerryDropDownView.swift */,
-				AFF841CA9AADA3FEFBFAF2ACD8DA8D2E /* BerryTableView.swift */,
-			);
-			name = View;
-			path = Berry/Core/Classes/View;
-			sourceTree = "<group>";
-		};
 		0A553FD7C4521C06D8055E745DCF8D8F /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,14 +119,29 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		130AF3F466B92AF2CE8D3FDF6E0E72E8 /* Protocol */ = {
+		0E256E05ACD59D0A4051EBCE37C80A88 /* Berry */ = {
 			isa = PBXGroup;
 			children = (
-				D5581226F02781749F99A4704BB95AA6 /* BerryConfiguration.swift */,
-				E872011FDC2241D00A50655E35B5843F /* BerryItemForm.swift */,
+				A769891AC4BB0E07DE2D6DB2A68894EA /* Core */,
+				DEF7E302567D45F050997C1043ED5466 /* Pod */,
+				11DDC4E45D65A5CDB62C00A83DCEF831 /* Support Files */,
 			);
-			name = Protocol;
-			path = Berry/Core/Classes/Protocol;
+			name = Berry;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		11DDC4E45D65A5CDB62C00A83DCEF831 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D24F0275B699ECEF26DE1BBB804D784A /* Berry.modulemap */,
+				6B9E730066F6797CE143A38D7F05382D /* Berry.xcconfig */,
+				1978756F532B5C4ACB45485ED9766B4E /* Berry-dummy.m */,
+				56F3636749972EF9C548323BEFDFD50D /* Berry-Info.plist */,
+				C92AA9BA9F33BC020E6283945B3F0A5D /* Berry-prefix.pch */,
+				AEAE6C6DD6A9CE8C632DA11AC0122E79 /* Berry-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Berry";
 			sourceTree = "<group>";
 		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
@@ -159,6 +150,16 @@
 				E169A450ED27AC725DF52953F66D11E0 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1ADD81881FEEC1D13AEB1960633F601E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				79EB55B856E1597BBC9A22B9F6D65A92 /* BerryConfiguration.swift */,
+				C2BDE9F1D23ABAAA35C2C095492888A3 /* BerryItemForm.swift */,
+			);
+			name = Protocol;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		31B9AFCF00E8E97E3818A42D2DB9F1EC /* Pods-Berry_Tests */ = {
@@ -187,24 +188,48 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		918902E5CF40DD40D557DA062681EA53 /* Configuration */ = {
+		7F8E53432D95CC86E87C4A1EE1D990D9 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5C70139F769D150DCC5346AB817C4B20 /* BerryDefaultConfiguration.swift */,
+				0E256E05ACD59D0A4051EBCE37C80A88 /* Berry */,
 			);
-			name = Configuration;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		B52438A2778C8F22526028D954AA2B56 /* Berry */ = {
+		99D8EAD7B9B00998BD0BD7288B17EC31 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				918902E5CF40DD40D557DA062681EA53 /* Configuration */,
-				D88A758A50D8C870804DDF41F7CECA27 /* Core */,
-				DA0D31B51013DA1E14E658216D4DF371 /* Pod */,
-				039102A94C968189A3BF6E2A2301C75A /* Support Files */,
+				F614DE61119C70EEAB23D08620E835BE /* Classes */,
 			);
-			name = Berry;
-			path = ../..;
+			name = Core;
+			path = Berry/Core;
+			sourceTree = "<group>";
+		};
+		A769891AC4BB0E07DE2D6DB2A68894EA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A96F8FC24AFCBC3A6D3DAEAE219472A7 /* Configuration */,
+				99D8EAD7B9B00998BD0BD7288B17EC31 /* Core */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		A96F8FC24AFCBC3A6D3DAEAE219472A7 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				AB7CBA298C7D71B6297D285175B6B9AA /* Classes */,
+			);
+			name = Configuration;
+			path = Berry/Configuration;
+			sourceTree = "<group>";
+		};
+		AB7CBA298C7D71B6297D285175B6B9AA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				42657B1E8AD0980C18EA9FFFE83BE0E4 /* BerryDefaultConfiguration.swift */,
+			);
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		CB0C85A2EC91C5271990014AAB23CE06 /* Pods-Berry_Example */ = {
@@ -228,36 +253,19 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D25434CAD6640928EAC50037DD6069D6 /* Development Pods */,
+				7F8E53432D95CC86E87C4A1EE1D990D9 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				5378BFDFF2EF36DBD0899654A5E64B7E /* Products */,
 				0A553FD7C4521C06D8055E745DCF8D8F /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D25434CAD6640928EAC50037DD6069D6 /* Development Pods */ = {
+		DEF7E302567D45F050997C1043ED5466 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				B52438A2778C8F22526028D954AA2B56 /* Berry */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		D88A758A50D8C870804DDF41F7CECA27 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				130AF3F466B92AF2CE8D3FDF6E0E72E8 /* Protocol */,
-				04C90CD1A5CA26C824530416BF8E4467 /* View */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		DA0D31B51013DA1E14E658216D4DF371 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				3E6D080C09A0FE01291A66358184F5FE /* Berry.podspec */,
-				514B690CCAFE62C2CE9EE1FC4B8DA885 /* LICENSE */,
-				4D1584B2C2BF0A4470A4BC57D2B2886F /* README.md */,
+				E4E7E0E4343597D04CE36C23FF0C90A8 /* Berry.podspec */,
+				727A974C8CEF0B238BFAADDB1AA14FF5 /* LICENSE */,
+				36CDC98DF40B847CDF7A4F1092C5965A /* README.md */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
@@ -269,6 +277,26 @@
 				ECF2A2B0720AE923C22BED3192888BE0 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		F614DE61119C70EEAB23D08620E835BE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD81881FEEC1D13AEB1960633F601E /* Protocol */,
+				FE0423989DC0CE21A2E5ACE755FF179F /* View */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FE0423989DC0CE21A2E5ACE755FF179F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DA9538FC68E912095BD4EAD7138353A /* BerryDropDownView.swift */,
+				8FDD442ACC934E36A2A0F6A97E6C66D4 /* BerryTableView.swift */,
+			);
+			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,7 +372,7 @@
 			buildConfigurationList = 29C1B6E99701EE32860F5B9F9AB078DD /* Build configuration list for PBXNativeTarget "Berry" */;
 			buildPhases = (
 				A2A21475D83D9DEB4D29B8F9FF5ECDBA /* Headers */,
-				EF76FE6F62A920A161B9A4C22E8CCF18 /* Sources */,
+				37C7AF8EA6F898FDA09737907E60F1B5 /* Sources */,
 				2D57AA9C219185F20F03256EB93EBF89 /* Frameworks */,
 				889962612509FB621CDFF4428F52D8BA /* Resources */,
 			);
@@ -410,6 +438,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		37C7AF8EA6F898FDA09737907E60F1B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A1C53EE433DC98C7C32B6686154D1D3 /* Berry-dummy.m in Sources */,
+				10B50929EB3A8AABAAD19DB8E42E7DC3 /* BerryConfiguration.swift in Sources */,
+				B91622ECB699940BDB486E2F92A2C243 /* BerryDefaultConfiguration.swift in Sources */,
+				8B25E9917489C7D82358AB0DF19E3A2C /* BerryDropDownView.swift in Sources */,
+				7C202EE1BBE55244612C9A2B142C5686 /* BerryItemForm.swift in Sources */,
+				A9B33162BBE7FDB9640F45B3C9B1C963 /* BerryTableView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5114224E2ADC0EDE10F62F42DBCDA3C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,19 +464,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				180F95F99758952E6CF3490B356BF962 /* Pods-Berry_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF76FE6F62A920A161B9A4C22E8CCF18 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0180C1E0C2BE24ECAFBBCF49AECD2A22 /* Berry-dummy.m in Sources */,
-				07F5C9EDAD25F685FD84D0FDA985FC3C /* BerryConfiguration.swift in Sources */,
-				69CC551596513A472556190A0EB5DF97 /* BerryDefaultConfiguration.swift in Sources */,
-				1AECFE643078DBAC44855D6D864B82E6 /* BerryDropDownView.swift in Sources */,
-				9F0106C26535113CCAE634FD534FFB39 /* BerryItemForm.swift in Sources */,
-				211D9C4FF37194CCFD9BEFBA4AD25DEA /* BerryTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,7 +617,7 @@
 		};
 		732E69361F816E7A1E748E772D35E64B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95AC79677A620EAA466215DB258CCD73 /* Berry.xcconfig */;
+			baseConfigurationReference = 6B9E730066F6797CE143A38D7F05382D /* Berry.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -748,7 +776,7 @@
 		};
 		BE94DE9E6E3C9B538C1750ECDEDC2F6E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95AC79677A620EAA466215DB258CCD73 /* Berry.xcconfig */;
+			baseConfigurationReference = 6B9E730066F6797CE143A38D7F05382D /* Berry.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

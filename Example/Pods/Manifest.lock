@@ -1,21 +1,18 @@
 PODS:
   - Berry (1.0.0):
     - Berry/Core (= 1.0.0)
-  - Berry/Configuration (1.0.0):
-    - Berry/Core
   - Berry/Core (1.0.0)
 
 DEPENDENCIES:
   - Berry (from `../`)
-  - Berry/Configuration (from `../`)
 
 EXTERNAL SOURCES:
   Berry:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Berry: 20a9fd21392461226ad0de3166caa96d890d8a66
+  Berry: b792e534479051129ea374326bdabea6011f68a9
 
-PODFILE CHECKSUM: c2a343dcf85f5f8424e1162ec9c6b311fa57f755
+PODFILE CHECKSUM: a7adbaed163381f103494097e4b380b6f9132f25
 
 COCOAPODS: 1.6.0
