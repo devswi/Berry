@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
     s.source = { :git => 'https://github.com/shiwei93/Berry.git', :tag => s.version }
     s.ios.deployment_target = '9.0'
     s.ios.frameworks = 'UIKit', 'Foundation'
+    s.swift_version = '4.2'
     
     s.default_subspec = 'Core'
     
