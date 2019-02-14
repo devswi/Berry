@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'Berry_Example' do
+  pod 'Berry', :path => '../'
+  pod 'Berry/Configuration', :path => '../'
+
+  target 'Berry_Tests' do
+    inherit! :search_paths
+    
+    
+  end
+end
