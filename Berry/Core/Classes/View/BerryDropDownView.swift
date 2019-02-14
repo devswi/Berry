@@ -10,6 +10,8 @@ import UIKit
 
 public protocol BerryDropDownViewDelegate: class {
     func dropDownView(_ view: BerryDropDownView, didSelectRowWith seriesIdentifier: AnyHashable?, and subSeriesIdentifier: AnyHashable?, at indexPath: IndexPath)
+    
+    ///
     func dropDownView(_ view: BerryDropDownView, showsVerticalScrollIndicatorFor seriesIdentifier: AnyHashable?) -> Bool
     func dropDownView(_ view: BerryDropDownView, backgroundColorFor seriesIdentifier: AnyHashable?) -> UIColor
 }
@@ -21,12 +23,38 @@ extension BerryDropDownViewDelegate {
 }
 
 public protocol BerryDropDownViewDataSource: class {
+    /// Drop down view's header view.
+    ///
+    /// - Parameter dropDownView: Current drop down view.
+    /// - Returns: An UIView object to `BerryDropDownView`.
     func headerView(for dropDownView: BerryDropDownView) -> UIView?
     
+    /// Return series `Array`
+    ///
+    /// If you have tow columns in drop down menu, you need to return an array with two elements which confirmes `Hashable`.
+    ///
+    /// - Parameter dropDownView: Current drop down view.
+    /// - Returns: Series Identifiers array, `Array<AnyHashable>`
     func series(in dropDownView: BerryDropDownView) -> [AnyHashable]
+    
+    /// Number of rows for different series.
+    ///
+    /// - Parameter view: Current drop down view.
+    /// - Parameter seriesIdentifier: Identifier for table view in `BerryDropDownView`.
+    /// - Parameter subSeriesIdentifier: Sub identifier for selected subSeriesIdentifier.
+    /// - Returns: Number of rows.
     func dropDownView(_ view: BerryDropDownView, numberOfRowsFor seriesIdentifier: AnyHashable?, and subSeriesIdentifier: AnyHashable?) -> Int
+    
+    ///
     func dropDownView(_ view: BerryDropDownView, cellFor seriesIdentifier: AnyHashable?, and subSeriesIdentifier: AnyHashable?, at indexPath: IndexPath) -> BerryTableViewCellType & UITableViewCell
     
+    /// Set different width for each table view.
+    ///
+    /// - Warning: If you want to each tableview fill equally, just return nil.
+    ///
+    /// - Parameter view: Current drop down view.
+    /// - Parameter seriesIdentifier: Identifier for table view in `BerryDropDownView`.
+    /// - Returns: The ratio of tableview's width to screen's width.
     func dropDownView(_ view: BerryDropDownView, widthRatioFor seriesIdentifier: AnyHashable?) -> CGFloat?
 }
 
