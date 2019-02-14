@@ -1,22 +1,26 @@
-![Berry: Drop down menu in Swift](http://7xie11.com1.z0.glb.clouddn.com/Group.png)
+![Berry: Drop down menu in Swift](Resource/logo.png)
 
-[![CocoaPods Compatible](https://img.shields.io/badge/pod-v0.1.3-blue.svg)](https://cocoapods.org/)
-[![License](https://img.shields.io/badge/license-MIT-000000.svg)](https://raw.githubusercontent.com/ShiWeiCN/Berry/master/LICENSE)
-[![Platform](https://img.shields.io/badge/platform-ios_8.0+-lightgrey.svg)](http://cocoadocs.org/docsets/Goku)
-[![Xcode](https://img.shields.io/badge/Xcode_8-Swift_3.1-red.svg)](http://cocoadocs.org/docsets/Goku)
+[![CocoaPods Compatible](https://img.shields.io/badge/pod-v1.0.0-blue.svg)](https://cocoapods.org/)
+[![License](https://img.shields.io/badge/license-MIT-000000.svg)](https://raw.githubusercontent.com/shiwei93/Berry/master/LICENSE)
+[![Platform](https://img.shields.io/badge/platform-ios_9.0+-lightgrey.svg)](https://cocoapods.org/pods/Berry)
+[![Xcode](https://img.shields.io/badge/Xcode_10-Swift_4.2-red.svg)](https://cocoapods.org/pods/Berry)
 
 
 **Berry** is an drop down menu written by Swift 3.1.
 
-- [Screen Shots](#screenshots)
+- [ScreenShots](#screenshots)
 - [Usage](#usage)
-    - [Menu item](#menuitem)
-    - [Theme](#theme)
-    - [Selected handler](#selectedhandler)
-    - [Navigation Title View](#navigationtitleview)
-    - [Show & hide](#show&hide)
+  - [Menu item](#menu-item)
+  - [Theme](#theme)
+    - [Default Theme](#default-theme)
+    - [Custom Theme](#custom-theme)
+  - [Selected handler](#selected-handler)
+  - [Navigation Title View](#navigation-title-view)
+  - [Show & Hide](#show--hide)
 - [Installation](#installation)
-- [ToDo](#todo)
+  - [Cocoapods](#cocoapods)
+  - [Manually](#manually)
+- [ToDO](#todo)
 - [License](#license)
 
 ## ScreenShots
